@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bounding box test</title>
+    <script src="js/three/three.min.js"></script>
+    <script src="js/three/OrbitControls.js"></script>
+    <script src="js/three/FlyControls.js"></script>
+    <script src="js/three/Projector.js"></script>
+    <script src="js/three/CanvasRenderer.js"></script>
+    <script src="js/three/tween.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var camera, scene, renderer, controls;
+      var ball1BBox, ball2BBox;
+      var ball1, ball2;
+
+      init();
+      animate();
+
+      function init(){
+        scene = new THREE.Scene();
+
+        renderer = new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        camera = new THREE.PerspectiveCamera(60,(window.innerWidth)/(window.innerHeight), 1, 10000);
+        camera.position.set(0, 0, 450);
+        scene.add(camera);
+
+        var light = new THREE.SpotLight(0xffffff);
+        light.position.set(50, 200, 200);
+        scene.add(light);
+
+        createBall(4, 60);
+      }
+
+      function createBall(numBalls, distance){
+        for (var i = 0; i < numBalls+1; i++) {
+          var sphere = new THREE.SphereGeometry(20, 16, 16);
+          material = new THREE.MeshPhongMaterial({color: 0xffffff*Math.random()});
+          ball = new THREE.Mesh(sphere, material);
+          ball.position.set(i*distance, 0, 0);
+          ball.name = "" + i + "";
+          ball.geometry.computeBoundingBox();
+          scene.add(ball);
+        }
+      }
+
+      function onDocumentMouseMove(event) {
+        var intersects = getIntersects();
+          if(intersects.length > 0) {
+              document.body.style.cursor = "pointer";
+              var num = 2.2*Math.random()+0.5;
+              new TWEEN.Tween( intersects[ 0 ].object.scale ).to( {
+                x:num,
+                y:num,
+                z:num }, 2500 )
+              .easing( TWEEN.Easing.Elastic.Out).start();
+              var array = getIntersectingBalls(intersects[ 0 ].object);
+              console.log(array);
+
+              setTimeout(function(){
+                for (var i = 0; i < array.length; i++) {
+                  for (var j = 0; j < scene.children.length; j++) {
+                    if (array[i] == scene.children[j].name) {
+                      scene.remove(scene.children[j]);
+                    }
+                  }
+                }
+              }, 700);
+          } else {
+              document.body.style.cursor = "default";
+          }
+    }
+
+    function getIntersectingBalls(intersectedObject){
+      var id = intersectedObject.name;
+      var ball1BBox = new THREE.Box3(new THREE.Vector3(), new THREE.Vector3());
+      ball1BBox.setFromObject(intersectedObject);
+      var intersectArray = [];
+      for (var i = 0; i < scene.children.length; i++) {
+        if (scene.children[i].type == "Mesh" && id != scene.children[i].name ) {
+          var ball2BBox = new THREE.Box3(new THREE.Vector3(), new THREE.Vector3());
+          ball2BBox.setFromObject(scene.children[i]);
+          if (ball1BBox.intersectsBox(ball2BBox)) {
+            intersectArray.push(scene.children[i].name);
+          }
+        }
+      }
+      return intersectArray;
+    }
+      function getIntersects(){
+        var mouse = new THREE.Vector2();
+        mouse.x = ( event.clientX / (window.innerWidth) ) * 2 - 1;
+        mouse.y = - ( event.clientY / (window.innerHeight) ) * 2 + 1;
+        var raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera( mouse, camera );
+        var intersects = raycaster.intersectObjects( scene.children );
+        return intersects;
+      }
+
+      function animate(){
+        requestAnimationFrame(animate);
+        render();
+      }
+
+      function render(){
+        TWEEN.update();
+
+        renderer.render(scene, camera);
+      }
+      document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    </script>
+  </body>
+</html>
