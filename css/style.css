@@ -19,6 +19,19 @@ body {
 .wrapper{
 	z-index: -4;
 }
+.imgDisplayWrap{
+	position: absolute;
+	z-index: 10000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+img.imgDisplay {
+  height: 95vh;
+	border: 12px solid black;
+	background: white;
+	display: none;
+}
 .pointsDisplay{
 	position: absolute;
 	z-index: 1000;
@@ -189,16 +202,20 @@ body {
 	grid-column-start: 1;
   grid-column-end: 13;
 	grid-row-start: 30;
-  grid-row-end: 37;
+  grid-row-end: 41;
 	background: white;
 	position: relative;
 	overflow: hidden;
 }
+img.resultDisplay {
+    width: 43%;
+		margin: 2%;
+}
 .case-renderresult-nmg{
 	grid-column-start: 1;
   grid-column-end: 13;
-	grid-row-start: 37;
-  grid-row-end: 44;
+	grid-row-start: 41;
+  grid-row-end: 48;
 	background: white;
 }
 .case-experimentation{
@@ -761,7 +778,7 @@ height: auto;
 
 .case-img{
 	display: inline;
-	width: 100%;
+	width: 473px;
 }
 .case-img-pc{
 	display: inline;

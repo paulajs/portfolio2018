@@ -71,6 +71,8 @@ class ShapeOverlays {
   const elmOverlay = document.querySelector('.shape-overlays');
   const pageClose = document.querySelectorAll('.pageClose');
   const video = document.querySelectorAll('.video');
+  const imgToDisplay = document.querySelectorAll('.interactive');
+  const displayImgContainer = document.querySelector('.imgDisplay');
   var overlay=0;
   var pageActive = false;
   var linkId = "";
@@ -85,9 +87,31 @@ class ShapeOverlays {
     pageClose[i].addEventListener('click', pageCloseHandler);
   }
 
+  for (var i = 0; i < imgToDisplay.length; i++) {
+    imgToDisplay[i].addEventListener('click', (e) =>{
+      var source = e.target.src;
+      var displayImgContainer = document.querySelector('.imgDisplay');
+      displayImgContainer.style.display = "block";
+      displayImgContainer.src = source;
+      /*
+      set height = 90vh, width = auto
+      check if computed width > window inner innerWidth
+      if true - set height auto and width 120%
+      */
+      console.log('img source',displayImgContainer.src);
+
+    });
+  }
+
+  displayImgContainer.addEventListener('click', (e) => {
+    e.target.src = "";
+    e.target.style.display = "none";
+    console.log('img clicked');
+  });
+
+
 function pageCloseHandler(){
   pageActive = false;
-  //history.pushState(null, null, "home");
   document.querySelector('.wrapper').style.overflow = "hidden";
   document.querySelector('.wrapper').style.border = "none";
   var page = document.querySelectorAll('.page');
@@ -115,7 +139,7 @@ function pageCloseHandler(){
       console.log('hello');
     }, 950);
   });
-  console.log(video);
+
   for (var i = 0; i < video.length; i++) {
     video[i].addEventListener('click', (e) => {
       var parent = e.target.parentNode;
@@ -135,9 +159,6 @@ function pageCloseHandler(){
           pauseButton.style.display = "none";
         }, 550);
       }
-
-      console.log(e.target.paused);
-      console.log(e.target.parentNode);
     });
     video[i].addEventListener('mouseover', (e) => {
       e.target.setAttribute('controls', true);
@@ -148,10 +169,6 @@ function pageCloseHandler(){
     });
 
   }
-
-  /*video.addEventListener('click', () => {
-    console.log('video clicked');
-  });*/
 
   hamburger.addEventListener('click', (e) => {
     if (overlay.isAnimating) {
