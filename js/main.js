@@ -87,12 +87,20 @@ class ShapeOverlays {
     pageClose[i].addEventListener('click', pageCloseHandler);
   }
 
+  var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
+  opacityBackground.addEventListener('click', (e) => {
+    e.target.style.display = "none";
+    displayImgContainer.style.display = "none";
+  });
+
   for (var i = 0; i < imgToDisplay.length; i++) {
     imgToDisplay[i].addEventListener('click', (e) =>{
       var source = e.target.src;
       var displayImgContainer = document.querySelector('.imgDisplay');
+      var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
       displayImgContainer.style.display = "block";
       displayImgContainer.src = source;
+      opacityBackground.style.display = "block";
       /*
       set height = 90vh, width = auto
       check if computed width > window inner innerWidth
@@ -106,6 +114,9 @@ class ShapeOverlays {
   displayImgContainer.addEventListener('click', (e) => {
     e.target.src = "";
     e.target.style.display = "none";
+    var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
+    displayImgContainer.style.display = "none";
+    opacityBackground.style.display = "none";
     console.log('img clicked');
   });
 
