@@ -73,6 +73,7 @@ class ShapeOverlays {
   const video = document.querySelectorAll('.video');
   const imgToDisplay = document.querySelectorAll('.interactive');
   const displayImgContainer = document.querySelector('.imgDisplay');
+  const threeElement = document.querySelectorAll('.threeElement');
   var overlay=0;
   var pageActive = false;
   var linkId = "";
@@ -91,6 +92,9 @@ class ShapeOverlays {
   opacityBackground.addEventListener('click', (e) => {
     e.target.style.display = "none";
     displayImgContainer.style.display = "none";
+    var imgWrap = document.querySelector('.imgDisplayWrap');
+    var threeElement = document.querySelector('.productThree');
+    imgWrap.removeChild(threeElement);
   });
 
   for (var i = 0; i < imgToDisplay.length; i++) {
@@ -108,6 +112,24 @@ class ShapeOverlays {
       */
       console.log('img source',displayImgContainer.src);
 
+    });
+  }
+  var threeWrap = document.querySelector('.imgDisplayWrap');
+  for (var i = 0; i < threeElement.length; i++) {
+    threeElement[i].addEventListener('click', (e) => {
+      /*var canvasElement = document.createElement('canvas');
+      canvasElement.className = "productThree";
+      canvasElement.style.width = 1000 + "px";*/
+      console.log(e.target.dataset.type);
+      if (e.target.dataset.type == "folder") {
+        startDisplayFolder(threeWrap);
+      }
+      else{
+        startDisplayJam(threeWrap);
+      }
+      //threeWrap.appendChild(canvasElement);
+      var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
+      opacityBackground.style.display = "block";
     });
   }
 
@@ -243,7 +265,7 @@ function pageCloseHandler(){
 
       function linkMouseLeaveHandler(e){
         if (overlay.isAnimating ==false && pageActive == false) {
-          removeVideo();
+          removeVideo(pageActive);
           var item5 = document.querySelector('.item-5');
           item5.style.zIndex = -100;
         }
@@ -306,7 +328,10 @@ function pageCloseHandler(){
         var url = "assets/" + target.id + ".mp4";
         vid.src = url;
         vid.loop = "true";
-        vid.play();
+        vid.play().catch(() => {
+          // throw away pause errors!
+        });
+
       }
 
       function removeVideo(pageActive){
@@ -315,6 +340,7 @@ function pageCloseHandler(){
           canvas.style.visibility = "visible";
         }
         var vid = document.querySelector('.wrapper video');
+        vid.pause();
         vid.src = "";
         document.querySelector('.wrapper').style.background ="transparent";
       }
