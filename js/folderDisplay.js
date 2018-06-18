@@ -1,16 +1,16 @@
 
 
-function startDisplayFolder(container){
+function startDisplayFolder(container, imgSrc){
   var sceneFolder, cameraFolder, rendererFolder, controlsFolder;
   var open = false;
-  initFolderDisplay(container);
+  initFolderDisplay(container, imgSrc);
   animateFolderDisplay();
 }
 
       //initFolderDisplay(container);
       //animateFolderDisplay();
 
-      function initFolderDisplay(container){
+      function initFolderDisplay(container, imgSrc){
         sceneFolder = new THREE.Scene();
         sceneFolder.fog = new THREE.Fog(0x1f4779,10,350);
         rendererFolder = new THREE.WebGLRenderer({alpha: true});
@@ -22,7 +22,7 @@ function startDisplayFolder(container){
         container.appendChild(rendererFolder.domElement);
 
         cameraFolder = new THREE.PerspectiveCamera(50,window.innerWidth/window.innerHeight, 1, 1000);
-        cameraFolder.position.z = 60;
+        cameraFolder.position.z = 50;
         sceneFolder.add(cameraFolder);
 
         controlsFolder = new THREE.OrbitControls( cameraFolder, rendererFolder.domElement );
@@ -33,7 +33,7 @@ function startDisplayFolder(container){
         var loader = new THREE.JSONLoader();
 
 				loader.load('assets/display/folder.json', function(geometry, material) {
-          var texture = new THREE.TextureLoader().load( "assets/display/folder3.png" );
+          var texture = new THREE.TextureLoader().load( imgSrc );
 					var mesh = new THREE.Mesh(geometry, material);
           mesh.material[1].map = texture;
           mesh.material[1].side = THREE.DoubleSide
@@ -52,7 +52,7 @@ function startDisplayFolder(container){
         var loader2 = new THREE.JSONLoader();
 
 				loader2.load('assets/display/folder1.json', function(geometry, material) {
-          var texture = new THREE.TextureLoader().load( "assets/display/folder3.png" );
+          var texture = new THREE.TextureLoader().load( imgSrc );
 					var mesh = new THREE.Mesh(geometry, material);
           mesh.material[1].map = texture;
           mesh.material[1].side = THREE.DoubleSide

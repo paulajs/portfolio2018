@@ -1,23 +1,23 @@
 
-function startDisplayJam(container){
+function startDisplayJam(container, imgSrc){
   var sceneJam, cameraJam, rendererJam, controlsJam;
-  initJamDisplay(container);
+  initJamDisplay(container, imgSrc);
   animateJamDisplay();
 }
 
 
 
-    function initJamDisplay(container){
+    function initJamDisplay(container, imgSrc){
       sceneJam = new THREE.Scene();
       //scene.background = new THREE.Color(0x8c8fbb);
       var envMap = new THREE.CubeTextureLoader()
 					.setPath( 'assets/display/' )
 					.load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
 
-      sceneJam.fog = new THREE.Fog(0x8c8fbb, 50, 1000);
+      sceneJam.fog = new THREE.Fog(0x8c8fbb, 50, 1200);
 
       cameraJam = new THREE.PerspectiveCamera(45, window.innerWidth/ window.innerHeight, 1, 2000);
-      cameraJam.position.z = 400;
+      cameraJam.position.z = 350;
 
       rendererJam = new THREE.WebGLRenderer({antialias: true, alpha:true});
 
@@ -51,8 +51,8 @@ function startDisplayJam(container){
 
       controlsJam = new THREE.OrbitControls( cameraJam, rendererJam.domElement );
 
-      var texture = new THREE.TextureLoader().load( "assets/display/strawberry.png" );
-      var texture2 = new THREE.TextureLoader().load( "assets/display/kvaede.png" );
+      var texture = new THREE.TextureLoader().load( imgSrc );
+      //var texture2 = new THREE.TextureLoader().load( "assets/display/kvaede.png" );
 
       //var map = new THREE.TextureLoader().load( "chess.jpg" );
 
@@ -62,7 +62,7 @@ function startDisplayJam(container){
         mesh2.scale.set(50, 50, 50);
         mesh2.position.y = -50;
         mesh2.rotation.y = 74.9;
-        mesh2.rotation.x = 0.2;
+        //mesh2.rotation.x = 0.2;
         console.log(mesh2.material);
         mesh2.material[3].map = texture;
         mesh2.material[3].transparent = true;
@@ -75,9 +75,8 @@ function startDisplayJam(container){
 
         mesh2.material[2].doubleSided = true;
         mesh2.material[2].color.setHex(0x410415);
-      
+
         mesh2.material[1].color.setHex(0x241e1f);
-        mesh2.material[3].color.setHex(0xDB5E83);
         mesh2.material[3].roughness = 0.3;
         mesh2.material[0].color.setHex(0x464545);
         mesh2.material[0].doubleSided = true;

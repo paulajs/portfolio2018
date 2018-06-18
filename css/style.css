@@ -32,10 +32,12 @@ img.imgDisplay {
 	background: white;
 	display: none;
 }
-
+img.imgDisplay:hover{
+	cursor: pointer;
+}
 .interactive:hover{
 	cursor: pointer;
-	animation: imgRumble 0.8s ease;
+
 }
 
 @keyframes imgRumble {
@@ -64,6 +66,10 @@ img.imgDisplay {
   opacity: 0.93;
   z-index: 10000;
 	display: none;
+}
+.displayImgBackgroundOpacity:hover{
+	background: #3a3a3a;
+	cursor: pointer;
 }
 .nmg-render{
 	width: auto;
@@ -137,6 +143,7 @@ img.imgDisplay {
   text-transform: uppercase;
   font-size: 13px;
 	padding-top: 7px;
+	text-align: center;
 }
 .casevid-para{
 	font-family: 'Source Code Pro', monospace;
@@ -795,6 +802,99 @@ height: auto;
 .mobile-menu{
 	display: none;
 }
+.case-img-wrap {
+    position: relative;
+		display: block;
+    margin: 0 auto;
+		width: fit-content;
+}
+button.imgClickInd {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+		color: black;
+	  border: 1px solid black;
+	  background: #000000a8;
+	  padding: 20px 85px;
+	  font-family: 'Source Code Pro', monospace;
+	  font-weight: 500;
+	  font-size: 2.2em;
+		display: none;
+}
+.displayImgWrap {
+    position: relative;
+		margin: 1%;
+}
+.displayImgWrap:hover .clickMe{
+	display: block;
+	animation: rumbleBorder 0.2s ease-in infinite;
+}
+.clickMe{
+	color: black;
+  border: 1px solid black;
+  background: #000000a8;
+  padding: 2.5% 22%;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  font-size: 2.2em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotate(-8deg);
+  display: none;
+}
+
+.case-img-wrap:hover .imgClickInd{
+	display: block;
+	animation: rumbleBorder 0.2s ease-in infinite;
+}
+
+.case-img-wrap:hover .imgClickInd p{
+	color: #FF00FF;
+}
+.case-img-wrap:hover .imgClickInd p:after{
+	content:attr(data-text);
+	position: absolute;
+  color: #00FF66;
+	right: 30%;
+	animation: rumble 0.2s ease-in infinite;
+}
+
+.displayImgWrap:hover .clickMe p{
+  color: #FF00FF;
+}
+.displayImgWrap:hover .clickMe p:after{
+  content:attr(data-text);
+	position: absolute;
+  color: #00FF66;
+	right: 44%;
+	animation: rumble 0.2s ease-in infinite;
+}
+
+
+@keyframes rumbleBorder{
+0%{
+border: 2px solid #00FF66;
+}
+10%{
+border: 2px solid #FF00FF;
+}
+40%{
+border: 2px solid white;
+}
+60%{
+border: 2px solid #FF00FF;
+}
+80%{
+border: 2px solid #00FF66;
+}
+100%{
+border: 2px solid #00FF66;
+}
+}
+
+
 .CTA{
 	background: black;
 	position: relative;
@@ -826,7 +926,6 @@ height: auto;
   color: #00FF66;
   left: 1.45vw;
 	animation: rumble 0.2s ease-in infinite;
-
 }
 
 .case-info-img{
@@ -839,15 +938,15 @@ height: auto;
 .case-img{
 	display: inline;
 	width: 473px;
+	align-self: center;
 }
 .case-img-nmg{
 	display: inline;
 	width: 320px;
 }
 .case-img-pc{
-	display: inline;
-	width: 1000px;
 	align-self: center;
+	width: 840px;
 }
 .case-img-mob{
 	width: 240px;
@@ -949,10 +1048,12 @@ height: auto;
 }
 
 canvas.productThree {
-    background: linear-gradient(#cccccc, #1f4779);
+    background: linear-gradient(#fbedd2, #838fa4);
 		border: 10px solid white;
 }
-
+canvas.productThree:hover{
+	cursor: move;
+}
 .menu-main li:hover p:after{
 	content:attr(data-text);
 	position: absolute;
@@ -984,17 +1085,33 @@ canvas.productThree {
 	position: absolute;
 	top:0;
 }
-marquee {
+.marquee {
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row-start: 3;
 	grid-row-end: 3;
 padding: 6px 0;
-z-index: 100;
+z-index: 0;
 color: white;
 background: black;
+display: inline-block;
 font-family: 'Source Code Pro', monospace;
+overflow-x: hidden;
 }
+.marquee p{
+	animation: marqueeAnim 45s linear infinite;
+}
+
+@keyframes marqueeAnim {
+	0%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(100%);
+	}
+}
+
+
 @keyframes rumble{
 0%{
 transform: translate(0px, 0px)
@@ -1368,7 +1485,7 @@ transform: translate(0px, 0px)
     position: fixed;
 		display: none;
 }
-marquee {
+.marquee {
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row-start: 4;

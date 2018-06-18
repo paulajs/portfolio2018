@@ -73,7 +73,7 @@ class ShapeOverlays {
   const video = document.querySelectorAll('.video');
   const imgToDisplay = document.querySelectorAll('.interactive');
   const displayImgContainer = document.querySelector('.imgDisplay');
-  const threeElement = document.querySelectorAll('.threeElement');
+  const threeElement = document.querySelectorAll('.clickMe');
   var overlay=0;
   var pageActive = false;
   var linkId = "";
@@ -93,13 +93,16 @@ class ShapeOverlays {
     e.target.style.display = "none";
     displayImgContainer.style.display = "none";
     var imgWrap = document.querySelector('.imgDisplayWrap');
-    var threeElement = document.querySelector('.productThree');
-    imgWrap.removeChild(threeElement);
+    var threeCanvas = document.querySelector('.productThree');
+    imgWrap.removeChild(threeCanvas);
   });
 
   for (var i = 0; i < imgToDisplay.length; i++) {
     imgToDisplay[i].addEventListener('click', (e) =>{
-      var source = e.target.src;
+      var parent = e.target.parentNode
+      console.log(parent.querySelector('img').src);
+      var source = parent.querySelector('img').src; //find rigtig source
+      console.log(source);
       var displayImgContainer = document.querySelector('.imgDisplay');
       var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
       displayImgContainer.style.display = "block";
@@ -110,22 +113,23 @@ class ShapeOverlays {
       check if computed width > window inner innerWidth
       if true - set height auto and width 120%
       */
-      console.log('img source',displayImgContainer.src);
+      //console.log('img source',displayImgContainer.src);
 
     });
   }
   var threeWrap = document.querySelector('.imgDisplayWrap');
   for (var i = 0; i < threeElement.length; i++) {
     threeElement[i].addEventListener('click', (e) => {
-      /*var canvasElement = document.createElement('canvas');
-      canvasElement.className = "productThree";
-      canvasElement.style.width = 1000 + "px";*/
-      console.log(e.target.dataset.type);
+      console.log(e.target);
       if (e.target.dataset.type == "folder") {
-        startDisplayFolder(threeWrap);
+        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+        startDisplayFolder(threeWrap, srcStr);
+        console.log('folder src: ',e.target.dataset.source);
       }
       else{
-        startDisplayJam(threeWrap);
+        console.log('jam src: ', e.target.dataset.source);
+        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+        startDisplayJam(threeWrap, srcStr);
       }
       //threeWrap.appendChild(canvasElement);
       var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
