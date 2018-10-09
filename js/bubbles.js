@@ -3,6 +3,7 @@ var clock = new THREE.Clock();
 var isAnimating = false;
 var clickTime = Date.now();
 var newClick = clickTime + 1600;
+var gameEnd = false;
 
 var movementSpeed = 80;
 var totalObjects = 1000;
@@ -36,7 +37,7 @@ else{
 
 function init(distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn){
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+  scene.fog = new THREE.FogExp2( 0xcccccc, 0.0026 );
 
   renderer = new THREE.WebGLRenderer( { alpha: true } );
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -46,7 +47,7 @@ function init(distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn){
   canvascon.appendChild(renderer.domElement);
 
   camera = new THREE.PerspectiveCamera(60,(window.innerWidth)/(window.innerHeight), 1, 10000);
-  camera.position.set(0, 0, 450);
+  camera.position.set(0, 0, 390); //450
   scene.add(camera);
 
   var light = new THREE.SpotLight(0xffffff);
@@ -54,11 +55,11 @@ function init(distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn){
   scene.add(light);
 
   var light2 = new THREE.SpotLight(0xFF00FF);
-  light2.position.set(20, 500, 50);
+  light2.position.set(20, 500, -600); //50
   scene.add(light2);
 
   var light3 = new THREE.SpotLight(0x14F459);
-  light3.position.set(300, 300, -600);
+  light3.position.set(300, 300, 50); //-600
   scene.add(light3);
 
   if(controlsOn === true){
@@ -138,11 +139,13 @@ function onDocumentMouseDownMobile( e ) {
   }
 }
 
-
-
 function onDocumentMouseDown( e ) {
   isAnimating = true;
   if(Date.now()<newClick){return}
+  if (gameEnd == true) {
+    gameEnd = false;
+    window.location.reload();
+  }
   clickTime = Date.now();
   newClick = clickTime + 1600;
   console.log(clickTime);
@@ -294,6 +297,7 @@ function removeBallsDesktop(array){
 function congratulate(minBall){
   if(countBalls() === minBall){
     congrats();
+    gameEnd = true;
   }
 }
 
@@ -309,11 +313,13 @@ function countBalls(){
 
 function congrats(){
   var body = document.querySelector('body');
-  var url = "url('https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif') no-repeat center center fixed";
+  var sti = "../assets/applause.gif"; //https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif
+  var sti1 = "https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif";
+  var url = "url("+sti+") no-repeat center center fixed";
   setTimeout(function(){
     body.style.background = url;
     body.style.backgroundSize = "cover";
-  }, 1000);
+  }, 500);
 }
 
 function addFireworks(intersects, objectSize, totalObjects){

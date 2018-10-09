@@ -75,7 +75,7 @@ function startDisplayFolder(container, imgSrc){
           var intersects = raycasterFolder.intersectObjects( sceneFolder.children );
           if(intersects.length > 0) {
             var object = sceneFolder.getObjectByName( "folder" );
-            openBooklet(-Math.PI/2, object);
+            //openBooklet(0, object);//-Math.PI/2
             toggleBoklet();
           }
         });
@@ -85,11 +85,11 @@ function startDisplayFolder(container, imgSrc){
           for (var i = 0; i < sceneFolder.children.length; i++) {
             if (sceneFolder.children[i].name == "folder") {
               if(open){
-                openBooklet(-Math.sin(Math.PI/4), sceneFolder.children[i])
+                openBooklet(-Math.sin(Math.PI/2), sceneFolder.children[i])
                 open = false;
               }
               else{
-                openBooklet(Math.sin(Math.PI/4), sceneFolder.children[i]);
+                openBooklet(Math.sin(Math.PI/2), sceneFolder.children[i]);//Math.PI/4
                 open = true;
               }
             }
@@ -97,8 +97,8 @@ function startDisplayFolder(container, imgSrc){
       }
 
       function openBooklet(theta, mesh){
-        if (mesh.rotation.y > 1) {
-          theta = theta*3;
+        if (theta < 0 && open == false) {
+          theta = theta - Math.sin(Math.PI/2)
         }
         var point = new THREE.Vector3(-10,0,0);
         var axis = new THREE.Vector3(0,1,0);

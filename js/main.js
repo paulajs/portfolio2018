@@ -79,7 +79,7 @@ class ShapeOverlays {
   var linkId = "";
 
   if(window.innerWidth >= 736){
-    overlay = new ShapeOverlays(elmOverlay, 14,700, 520, 130);
+    overlay = new ShapeOverlays(elmOverlay, 14,800, 520, 110);
   }
   else{
     overlay = new ShapeOverlays(elmOverlay, 10, 600, 340, 130);
@@ -179,6 +179,8 @@ function pageCloseHandler(){
 
   for (var i = 0; i < video.length; i++) {
     video[i].addEventListener('click', (e) => {
+      e.target.volume = 0.05;
+      console.log('vid controls', e.target.controls);
       var parent = e.target.parentNode;
       var playButton = parent.querySelector('.play-button');
       var pauseButton = parent.querySelector('.pause-button');
@@ -187,14 +189,14 @@ function pageCloseHandler(){
         e.target.play();
         setTimeout(function(){
           playButton.style.display = "none";
-        }, 550);
+        }, 450);
       }
       else{
         pauseButton.style.display = "block";
         e.target.pause();
         setTimeout(function(){
           pauseButton.style.display = "none";
-        }, 550);
+        }, 450);
       }
     });
     video[i].addEventListener('mouseover', (e) => {
@@ -280,6 +282,10 @@ function pageCloseHandler(){
         background.style.display = "block";
         background.play();
         background.style.zIndex = -3;
+        var bodyBackground = document.querySelector('body');
+        if (bodyBackground.style.background != "#FFF") {    
+          bodyBackground.style.background = "#FFF";
+        }
         setVideo(e);
         var caseLink = document.querySelectorAll('.case');
         for (var i = 0; i < caseLink.length; i++) {

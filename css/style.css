@@ -8,7 +8,7 @@
 body {
 	min-height: 100vh;
 	overflow-y: hidden;
-	background:#fff ;
+	background:white;
 	/*url("https://media.giphy.com/media/EO9j0o6pHdYmk/giphy.gif");url("https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif");*/
 	background-position: center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ body {
 	transform: translate(-50%, -50%);
 }
 img.imgDisplay {
-  height: 95vh;
+  height: 78vh;
 	border: 12px solid #ffffff;
 	background: white;
 	display: none;
@@ -340,7 +340,7 @@ img.resultDisplay {
   grid-row-end: 57;
 	background: #406a9e;
 }
-.video:hover{
+.wrapper .video:hover{
 	cursor: pointer;
 }
 .case-header.night{
@@ -371,7 +371,10 @@ img.resultDisplay {
 	animation: triangleAnimation 0.5s;
 }
 .circle{
-	opacity: 0.8;
+	opacity: 0.85;
+	stroke:#FF00FF;
+	stroke-width:0.8;
+	animation: triangleAnimation 0.5s;
 }
 .pause{
 	fill:none;
@@ -381,12 +384,14 @@ img.resultDisplay {
 	stroke-miterlimit:10;
 	animation: triangleAnimation 0.5s;
 }
+
+
 @keyframes playAnimation{
   0%{
     transform: translate(-50%, -45%) scale(0.01);
-    opacity: 0;
+    opacity: 1;
   }
-	70%{
+	30%{
 		opacity: 1;
 	}
 	90%{
@@ -395,7 +400,7 @@ img.resultDisplay {
 	}
 	100%{
     transform:translate(-50%, -45%) scale(0.15);
-		opacity: 0;
+		opacity: 1;
   }
 }
 
@@ -679,7 +684,7 @@ img.resultDisplay {
 	grid-column-end: 4;
     z-index: -100;
 	display: grid;
-	grid-template-columns: 15% 15% 15% 15% 15% 15% 15%;
+	grid-template-columns: 15% 15% 15% 15% 15% 17% 12%;
 	grid-template-rows: 81.25% 6% 12.75%;
 }
 .hamburger {
@@ -692,7 +697,7 @@ img.resultDisplay {
 	grid-column-start: 1;
 	grid-column-end: 7;
 	grid-row-start: 1;
-	grid-row-end: 3;
+	grid-row-end: 4;
 	overflow: hidden;
 	/*border: 7px solid black;*/
 	/*overflow-y: scroll;*/
@@ -710,12 +715,13 @@ button.pageClose {
 	    border: none;
 	    border: 1px solid black;
 	    position: absolute;
-	    right: 7.9%;
+	    right: 6.3%;
 	    transform: translateY(-52px);
 	    padding-top: 11px;
 	    padding-left: 11px;
 	    padding-right: 10px;
-	    padding-bottom: 7px;
+			padding-bottom: 7px;
+			z-index: 1000;
 }
 svg.close_button{
 	stroke: #ffffff;
@@ -815,7 +821,7 @@ button.imgClickInd {
     transform: translate(-50%, -50%) rotate(-8deg);
 		color: black;
 	  border: 1px solid black;
-	  background: #000000a8;
+	  background: rgba(0,0,0,0.8);
 	  padding: 20px 85px;
 	  font-family: 'Source Code Pro', monospace;
 	  font-weight: 500;
@@ -1067,7 +1073,7 @@ canvas.productThree:hover{
 	grid-column-end: 2;
 	grid-row-start: 4;
 	grid-row-end: 7;
-	width: 200%;
+	width: 213%;
 }
 .tag{
 	grid-column-start: 1;
@@ -1182,8 +1188,8 @@ transform: translate(0px, 0px)
 }
 
 .shape-overlays {
-	width: 92.3vw;
-  height: 87vh;
+	width: 94.3vw;
+  height: 100vh;
   margin-top: -7px;
   margin-left: -4px;
   z-index: 10000;
@@ -1204,13 +1210,13 @@ transform: translate(0px, 0px)
 }
 
 .shape-overlays__path:nth-of-type(2) {
-	fill: white;
+	fill: #00FF66;
 	stroke: black;
 	stroke-width: 0.3;
 }
 
 .shape-overlays__path:nth-of-type(3) {
-	fill:white;
+	fill:#FF00FF;
 	stroke: black;
 	stroke-width: 0.3;
 }
