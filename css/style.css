@@ -1096,13 +1096,13 @@ canvas.productThree:hover{
 	grid-column-end: 4;
 	grid-row-start: 3;
 	grid-row-end: 3;
-padding: 6px 0;
-z-index: 0;
-color: white;
-background: black;
-display: inline-block;
-font-family: 'Source Code Pro', monospace;
-overflow-x: hidden;
+	padding: 6px 0;
+	z-index: 0;
+	color: white;
+	background: black;
+	display: inline-block;
+	font-family: 'Source Code Pro', monospace;
+	overflow-y: hidden;
 }
 .marquee p{
 	animation: marqueeAnim 45s linear infinite;
