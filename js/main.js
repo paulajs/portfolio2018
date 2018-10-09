@@ -118,12 +118,13 @@ class ShapeOverlays {
     });
   }
   var threeWrap = document.querySelector('.imgDisplayWrap');
+  var firstFolderLoad = true;
   for (var i = 0; i < threeElement.length; i++) {
     threeElement[i].addEventListener('click', (e) => {
-      console.log(e.target);
       if (e.target.dataset.type == "folder") {
         var srcStr = "assets/display/"+e.target.dataset.source+".png";
-        startDisplayFolder(threeWrap, srcStr);
+        startDisplayFolder(threeWrap, srcStr, firstFolderLoad);
+        firstFolderLoad = false;
         console.log('folder src: ',e.target.dataset.source);
       }
       else{

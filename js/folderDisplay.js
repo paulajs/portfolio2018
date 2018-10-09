@@ -1,16 +1,12 @@
+var sceneFolder, cameraFolder, rendererFolder, controlsFolder;
+var open = false;
 
-
-function startDisplayFolder(container, imgSrc){
-  var sceneFolder, cameraFolder, rendererFolder, controlsFolder;
-  var open = false;
-  initFolderDisplay(container, imgSrc);
+function startDisplayFolder(container, imgSrc, isFirstRun){
+  initFolderDisplay(container, imgSrc, isFirstRun);
   animateFolderDisplay();
 }
 
-      //initFolderDisplay(container);
-      //animateFolderDisplay();
-
-      function initFolderDisplay(container, imgSrc){
+      function initFolderDisplay(container, imgSrc, isFirstRun){
         sceneFolder = new THREE.Scene();
         sceneFolder.fog = new THREE.Fog(0x1f4779,10,350);
         rendererFolder = new THREE.WebGLRenderer({alpha: true});
@@ -65,6 +61,9 @@ function startDisplayFolder(container, imgSrc){
 					sceneFolder.add(mesh);
 				});
 
+        if(!isFirstRun) {
+          return;
+        }
         container.addEventListener('click', (event) => {
           var mouse = new THREE.Vector2();
           mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -76,20 +75,20 @@ function startDisplayFolder(container, imgSrc){
           if(intersects.length > 0) {
             var object = sceneFolder.getObjectByName( "folder" );
             //openBooklet(0, object);//-Math.PI/2
-            toggleBoklet();
+            toggleBoklet(isFirstRun);
           }
         });
       }
 
-      function toggleBoklet(){
+      function toggleBoklet(isFirstRun){
           for (var i = 0; i < sceneFolder.children.length; i++) {
             if (sceneFolder.children[i].name == "folder") {
               if(open){
-                openBooklet(-Math.sin(Math.PI/2), sceneFolder.children[i])
+                openBooklet(Math.sin(Math.PI/2), sceneFolder.children[i])
                 open = false;
               }
               else{
-                openBooklet(Math.sin(Math.PI/2), sceneFolder.children[i]);//Math.PI/4
+                openBooklet(-Math.sin(Math.PI/2), sceneFolder.children[i]);//Math.PI/4
                 open = true;
               }
             }
@@ -98,7 +97,7 @@ function startDisplayFolder(container, imgSrc){
 
       function openBooklet(theta, mesh){
         if (theta < 0 && open == false) {
-          theta = theta - Math.sin(Math.PI/2)
+          //theta = theta - Math.sin(Math.PI/2)
         }
         var point = new THREE.Vector3(-10,0,0);
         var axis = new THREE.Vector3(0,1,0);
