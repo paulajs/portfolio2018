@@ -120,15 +120,27 @@ class ShapeOverlays {
   var threeWrap = document.querySelector('.imgDisplayWrap');
   for (var i = 0; i < threeElement.length; i++) {
     threeElement[i].addEventListener('click', (e) => {
-      console.log(e.target);
-      if (e.target.dataset.type == "folder") {
-        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+      var target = e.target;
+      var dataType = target.dataset.type;
+      // if no dataset.type try the parent
+      if(!dataType) {
+        target = e.target.parentNode
+        dataType = target.dataset.type;
+      }
+      if(!dataType) {
+        throw new Error('Could not find data-type');
+      }
+      console.log('dataType', dataType);
+      if (target.dataset.type == "folder") {
+        var srcStr = "assets/display/" + target.dataset.source + ".png";
         startDisplayFolder(threeWrap, srcStr);
-        console.log('folder src: ',e.target.dataset.source);
+        console.log('folder src: ', target.dataset.source);
       }
       else{
-        console.log('jam src: ', e.target.dataset.source);
-        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+        let source =  target.dataset.source
+        console.log('jam src: ',source);
+        var srcStr = "assets/display/" + source + ".png";
+        
         startDisplayJam(threeWrap, srcStr);
       }
       //threeWrap.appendChild(canvasElement);
