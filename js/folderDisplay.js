@@ -96,9 +96,6 @@ function startDisplayFolder(container, imgSrc, isFirstRun){
       }
 
       function openBooklet(theta, mesh){
-        if (theta < 0 && open == false) {
-          //theta = theta - Math.sin(Math.PI/2)
-        }
         var point = new THREE.Vector3(-10,0,0);
         var axis = new THREE.Vector3(0,1,0);
         var pointIsWorld = false;
