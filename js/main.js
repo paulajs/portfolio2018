@@ -99,22 +99,20 @@ class ShapeOverlays {
 
   for (var i = 0; i < imgToDisplay.length; i++) {
     imgToDisplay[i].addEventListener('click', (e) =>{
-      var parent = e.target.parentNode
-      console.log(parent.querySelector('img').src);
-      var source = parent.querySelector('img').src; //find rigtig source
-      console.log(source);
-      var displayImgContainer = document.querySelector('.imgDisplay');
-      var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
+      var parent = e.target.parentNode;
+      // try higher if not found
+      if(!parent.querySelector('img')) {
+        var parent = e.target.parentNode.parentNode;
+      }
+      if(!parent.querySelector('img')) {
+        throw new Error('Could not find img in parent node or parents node parent node.');
+      }
+      let source = parent.querySelector('img').src;
+      let displayImgContainer = document.querySelector('.imgDisplay');
+      let opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
       displayImgContainer.style.display = "block";
       displayImgContainer.src = source;
       opacityBackground.style.display = "block";
-      /*
-      set height = 90vh, width = auto
-      check if computed width > window inner innerWidth
-      if true - set height auto and width 120%
-      */
-      //console.log('img source',displayImgContainer.src);
-
     });
   }
   var threeWrap = document.querySelector('.imgDisplayWrap');
