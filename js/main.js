@@ -99,37 +99,48 @@ class ShapeOverlays {
 
   for (var i = 0; i < imgToDisplay.length; i++) {
     imgToDisplay[i].addEventListener('click', (e) =>{
-      var parent = e.target.parentNode
-      console.log(parent.querySelector('img').src);
-      var source = parent.querySelector('img').src; //find rigtig source
-      console.log(source);
-      var displayImgContainer = document.querySelector('.imgDisplay');
-      var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
+      var parent = e.target.parentNode;
+      // try higher if not found
+      if(!parent.querySelector('img')) {
+        var parent = e.target.parentNode.parentNode;
+      }
+      if(!parent.querySelector('img')) {
+        throw new Error('Could not find img in parent node or parents node parent node.');
+      }
+      let source = parent.querySelector('img').src;
+      let displayImgContainer = document.querySelector('.imgDisplay');
+      let opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
       displayImgContainer.style.display = "block";
       displayImgContainer.src = source;
       opacityBackground.style.display = "block";
-      /*
-      set height = 90vh, width = auto
-      check if computed width > window inner innerWidth
-      if true - set height auto and width 120%
-      */
-      //console.log('img source',displayImgContainer.src);
-
     });
   }
   var threeWrap = document.querySelector('.imgDisplayWrap');
   var firstFolderLoad = true;
   for (var i = 0; i < threeElement.length; i++) {
     threeElement[i].addEventListener('click', (e) => {
-      if (e.target.dataset.type == "folder") {
+      var target = e.target;
+      var dataType = target.dataset.type;
+      // if no dataset.type try the parent
+      if(!dataType) {
+        target = e.target.parentNode
+        dataType = target.dataset.type;
+      }
+      if(!dataType) {
+        throw new Error('Could not find data-type');
+      }
+      console.log('dataType', dataType);
+      if (target.dataset.type == "folder") {
         var srcStr = "assets/display/"+e.target.dataset.source+".png";
         startDisplayFolder(threeWrap, srcStr, firstFolderLoad);
         firstFolderLoad = false;
         console.log('folder src: ',e.target.dataset.source);
       }
       else{
-        console.log('jam src: ', e.target.dataset.source);
-        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+        let source =  target.dataset.source
+        console.log('jam src: ',source);
+        var srcStr = "assets/display/" + source + ".png";
+        
         startDisplayJam(threeWrap, srcStr);
       }
       //threeWrap.appendChild(canvasElement);
