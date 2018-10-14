@@ -96,7 +96,7 @@ function initiateCanvasDesktop(){
 }
 
 function initiateCanvasMobile(){
-  init(65, 3, 3, -95, -90, 20, false);
+  init(65, 3, 3, -95, -135, 20, false);//90
   //distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn
   animate();
   function animate(){

@@ -174,7 +174,7 @@ function pageCloseHandler(){
       mobileMenu.style.display = "none";
       hamburger.style.display = "block";
       console.log('hello');
-    }, 950);
+    }, 800);
   });
 
   for (var i = 0; i < video.length; i++) {
