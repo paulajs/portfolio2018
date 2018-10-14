@@ -2,6 +2,7 @@ var sceneFolder, cameraFolder, rendererFolder, controlsFolder;
 var open = false;
 
 function startDisplayFolder(container, imgSrc, isFirstRun){
+  open  = false;
   initFolderDisplay(container, imgSrc, isFirstRun);
   animateFolderDisplay();
 }
@@ -74,7 +75,6 @@ function startDisplayFolder(container, imgSrc, isFirstRun){
           var intersects = raycasterFolder.intersectObjects( sceneFolder.children );
           if(intersects.length > 0) {
             var object = sceneFolder.getObjectByName( "folder" );
-            //openBooklet(0, object);//-Math.PI/2
             toggleBoklet(isFirstRun);
           }
         });
@@ -88,7 +88,7 @@ function startDisplayFolder(container, imgSrc, isFirstRun){
                 open = false;
               }
               else{
-                openBooklet(-Math.sin(Math.PI/2), sceneFolder.children[i]);//Math.PI/4
+                openBooklet(-Math.sin(Math.PI/2), sceneFolder.children[i]);
                 open = true;
               }
             }
