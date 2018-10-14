@@ -129,12 +129,10 @@ class ShapeOverlays {
       if(!dataType) {
         throw new Error('Could not find data-type');
       }
-      console.log('dataType', dataType);
       if (target.dataset.type == "folder") {
-        var srcStr = "assets/display/"+e.target.dataset.source+".png";
+        var srcStr = "assets/display/"+target.dataset.source+".png";
         startDisplayFolder(threeWrap, srcStr, firstFolderLoad);
         firstFolderLoad = false;
-        console.log('folder src: ',e.target.dataset.source);
       }
       else{
         let source =  target.dataset.source
