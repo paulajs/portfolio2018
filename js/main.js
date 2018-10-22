@@ -159,6 +159,8 @@ class ShapeOverlays {
 
 function pageCloseHandler(){
   pageActive = false;
+  var animBack = document.querySelector('#animation-case-backg');
+  animBack.style.display = "none";
   document.querySelector('.wrapper').style.overflow = "hidden";
   document.querySelector('.wrapper').style.border = "none";
   var page = document.querySelectorAll('.page');
@@ -321,6 +323,8 @@ function pageCloseHandler(){
 
       function displayPageById(linkId, pageActive){
         pageActive = true;
+        var backgr = document.querySelector('#animation-case-backg');
+          backgr.style.display = "block";
         setTimeout(() => {
           var page = document.querySelectorAll('.page');
           for (var i = 0; i < page.length; i++) {
@@ -329,14 +333,15 @@ function pageCloseHandler(){
           var wrapper = document.querySelector('.wrapper');
           wrapper.style.overflowY = "scroll";
           wrapper.scrollTop = 0;
-          wrapper.style.border = "3px solid black";
+          //wrapper.style.border = "3px solid black";
           var pageClass = "."+linkId;
           console.log('new link',linkId);
+          
           var page1 = document.querySelector(pageClass);
           page1.style.display = "grid";
           page1.scrollTop = 0;
           console.log('scroll top',wrapper.scrollTop);
-        }, 1000);
+        }, 2700);
       }
 
       function setVideo(e){
