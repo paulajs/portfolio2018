@@ -149,12 +149,16 @@ function onDocumentMouseDown( e ) {
   clickTime = Date.now();
   newClick = clickTime + 1600;
   console.log(clickTime);
+  var sounds = document.querySelector('#bubbleSounds');
+  sounds.src = "assets/"+"pop6"+".mp3";
+  
   var elem = document.querySelector(".pointsDisplay");
   elem.style.animation = "none";
   var intersects = getIntersects(e);
   if (intersects.length>0){
     var array = getIntersectingBalls(intersects[ 0 ].object);
     scaleAnimation( intersects[ 0 ].object, 10, 700);
+    sounds.play();
     setTimeout(function(){
       isAnimating = false;
       scene.remove(intersects[ 0 ].object);
@@ -316,9 +320,13 @@ function congrats(){
   var sti = "../assets/applause.gif"; //https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif
   var sti1 = "https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif";
   var url = "url("+sti+") no-repeat center center fixed";
+  var sounds = document.querySelector('#bubbleSounds');
+  
   setTimeout(function(){
     body.style.background = url;
     body.style.backgroundSize = "cover";
+    sounds.src = "assets/"+"applause"+".wav";
+    sounds.play();
   }, 500);
 }
 

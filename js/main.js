@@ -78,6 +78,102 @@ class ShapeOverlays {
   var pageActive = false;
   var linkId = "";
 
+  const header = document.querySelector('.about .header');
+  const cta = document.querySelector('.about .ctabutton');
+  const footer = document.querySelector('.contact-info');
+  const textsec = document.querySelector('.about-text-section');
+  const text = document.querySelectorAll('.about-text-section p');
+
+  const backgroundContainer = document.querySelector('#about-background');
+  const backgroundContainerImage = backgroundContainer.querySelector("img");
+  const backgroundContainerVideo = backgroundContainer.querySelector("video");
+  var lastViewedMarkWasMovie = false;
+  var playVideoPromise = null;
+  var isPlayingVideo = false;
+
+  var emailCopyButton = document.querySelector('.email-copy');
+
+  emailCopyButton.addEventListener('click', onEmailCopyClickHandler);
+
+  function onEmailCopyClickHandler(){
+    var emailadress = document.querySelector('.email');
+
+    var range = document.createRange();  
+    range.selectNode(emailadress);  
+    window.getSelection().addRange(range);
+
+    try {  
+      // Now that we've selected the anchor text, execute the copy command  
+      var successful = document.execCommand('copy');  
+      var msg = successful ? 'successful' : 'unsuccessful';  
+      console.log('Copy email command was ' + msg);  
+    } catch(err) {  
+      console.log('Oops, unable to copy');  
+    }
+    window.getSelection().removeAllRanges();   
+  }
+
+  //about functions
+  var allMarks = document.querySelectorAll('.about-text-section p mark');
+  for (let i = 0; i < allMarks.length; i++) {
+      allMarks[i].addEventListener('mouseover', onMarkMouseOver);  
+      allMarks[i].addEventListener('mouseout', onMarkMouseOut);
+  }
+
+  function hideTextAndShowResource() {
+    header.style.background = "none";
+    footer.style.background = "none";
+    cta.style.background = "none";
+    textsec.style.background = "none";
+    text[0].style.color = "transparent";
+    text[1].style.color = "transparent";
+    text[2].style.color = "transparent";
+  }
+
+  function showTextAndNormalizeResource() {
+    backgroundContainerImage.src = ""
+    header.style.background = "white";
+    cta.style.background = "white";
+    footer.style.background = "white";
+    textsec.style.background = "white";
+    text[0].style.color = "black";
+    text[1].style.color = "black";
+    text[2].style.color = "black";
+  }
+
+  function onMarkMouseOver(e){
+    const resourceTarget = e.target.dataset.resource;
+    const isMovie = resourceTarget.split(".").pop() === "mp4";
+
+    if(isMovie) {
+      lastViewedMarkWasMovie = true;
+      backgroundContainerVideo.src = resourceTarget;
+      if(isPlayingVideo) {
+        return;
+      }
+      playVideoPromise = backgroundContainerVideo.play();
+      playVideoPromise.then( () => {
+        isPlayingVideo = true;
+      });
+    } else {
+      backgroundContainerImage.src = resourceTarget;
+    }
+    hideTextAndShowResource();
+  }
+
+  function onMarkMouseOut(e){
+    if(lastViewedMarkWasMovie) {
+      lastViewedMarkWasMovie = false;
+      playVideoPromise.then( () => {
+        backgroundContainerVideo.pause();
+        isPlayingVideo = false;
+        backgroundContainerVideo.src = "";
+      });
+    }
+    showTextAndNormalizeResource();
+  }
+  //
+
   if(window.innerWidth >= 736){
     overlay = new ShapeOverlays(elmOverlay, 14,800, 520, 110);
   }
@@ -146,6 +242,7 @@ class ShapeOverlays {
       opacityBackground.style.display = "block";
     });
   }
+
 
   displayImgContainer.addEventListener('click', (e) => {
     e.target.src = "";
@@ -323,6 +420,11 @@ function pageCloseHandler(){
 
       function displayPageById(linkId, pageActive){
         pageActive = true;
+        var sound = document.querySelector('#theSound');
+        var audio = "assets/" + "trans2" + ".mp3";
+        sound.src= audio;
+        sound.play();
+        sound.loop = false;
         var backgr = document.querySelector('#animation-case-backg');
           backgr.style.display = "block";
         setTimeout(() => {
@@ -333,7 +435,6 @@ function pageCloseHandler(){
           var wrapper = document.querySelector('.wrapper');
           wrapper.style.overflowY = "scroll";
           wrapper.scrollTop = 0;
-          //wrapper.style.border = "3px solid black";
           var pageClass = "."+linkId;
           console.log('new link',linkId);
           
@@ -341,17 +442,24 @@ function pageCloseHandler(){
           page1.style.display = "grid";
           page1.scrollTop = 0;
           console.log('scroll top',wrapper.scrollTop);
+          //sound.pause();
+          //sound.src= "";
         }, 2700);
       }
 
       function setVideo(e){
         document.querySelector('#bubbles-container').style.visibility = "hidden";
         var vid = document.querySelector('.wrapper video');
+        var sound = document.querySelector('#theSound');
         vid.style.display = "block";
         var target = e.target;
         console.log(target.id);
         var url = "assets/" + target.id + ".mp4";
+        var audio = "assets/" + target.id + ".mp3";
         vid.src = url;
+        sound.src = audio;
+        sound.loop = "true";
+        sound.play();
         vid.loop = "true";
         vid.play().catch(() => {
           // throw away pause errors!
@@ -365,6 +473,9 @@ function pageCloseHandler(){
           canvas.style.visibility = "visible";
         }
         var vid = document.querySelector('.wrapper video');
+        var sound = document.querySelector('#theSound');
+        sound.pause();
+        sound.src="";
         vid.pause();
         vid.src = "";
         document.querySelector('.wrapper').style.background ="transparent";
