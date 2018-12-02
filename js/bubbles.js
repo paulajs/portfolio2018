@@ -28,6 +28,8 @@ var colorArray = [
   0xCC00CC,
   0xB300B3
 ];
+
+console.log("window.innerWidth", window.innerWidth)
 if(window.innerWidth >= 736){
   initiateCanvasDesktop();
 }
@@ -269,11 +271,14 @@ function touchMobileSetColor(objectMaterial){
 }
 
 function displayPoints(elem, array, e, posX, posY){
-  var points =(array.length+1)*1000
+  var points =(array.length+1)*1000;
+  var backgrounds = ['../assets/points-background1.png','../assets/points-background2.png'];
+  var randomNum = Math.floor(Math.random()*2);
   var str = "+"+String(points);
   elem.innerHTML = str;
   elem.style.left = posX;
   elem.style.top = posY;
+  elem.style.background = "url('"+backgrounds[randomNum]+"') no-repeat top left" ;
   elem.style.animation = "pointsAnim 1.25s ease-in";
 }
 function removeBallsMobile(array){
@@ -316,15 +321,14 @@ function countBalls(){
 }
 
 function congrats(){
-  var body = document.querySelector('body');
-  var sti = "../assets/applause.gif"; //https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif
-  var sti1 = "https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif";
-  var url = "url("+sti+") no-repeat center center fixed";
+  var backWin = document.querySelector('#full-screen-win');
+  var sti = "assets/applause.mp4";
   var sounds = document.querySelector('#bubbleSounds');
   
   setTimeout(function(){
-    body.style.background = url;
-    body.style.backgroundSize = "cover";
+    backWin.src = sti;
+    backWin.autoplay = true;
+    backWin.loop = true;
     sounds.src = "assets/"+"applause"+".wav";
     sounds.play();
   }, 500);
