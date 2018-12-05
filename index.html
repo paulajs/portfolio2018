@@ -14,9 +14,10 @@
     <script src="js/three/CanvasRenderer.js"></script>
     <script src="js/three/tween.min.js"></script>
     <script>
+      /*
       setInterval( () => {
         document.head.getElementsByTagName('meta')["theme-color"].content = "#" + Math.floor(Math.random() * 4095).toString(16);
-      }, 2000);
+      }, 2000);*/
     </script>
   </head>
   <body>
@@ -37,10 +38,10 @@
         <line class="st111" x1="6.5" y1="37.5" x2="41.5" y2="6.5"/>
       </svg>
       </div>
-      <ul class="menu-mob">
-        <li>about</li>
-        <li>contact</li>
-        <li>web experiments</li>
+      <ul class="menu-mob menu-cases">
+        <li id="about" class="case" ><p data-text="About">About</p></li>
+        <li id="contact" class="case" ><p data-text="Contact">Contact</p></li>
+        <li id="experiments" class="case" ><p data-text="Experiments">Experiments</p></li>
         <li class="header-cases" >Cases</li>
         <li id="skansingit" class="case"><p data-text="Skansing IT">Skansing IT</p></li>
         <li id="hesehus" class="case"><p data-text="Hesehus">Hesehus</p></li>
@@ -1020,7 +1021,7 @@
               </svg>
             </button>
           </div>
-          <video src="" id="full-screen-win"></video>
+          
           <img class="bubbles-intro-zoom" src="assets/SVG/zoom.svg" alt="zoom">
           <img class="bubbles-intro-pan" src="assets/SVG/pan.svg" alt="zoom">
           <img class="bubbles-intro-click2" src="assets/SVG/click2.svg" alt="zoom">
@@ -1028,7 +1029,8 @@
     <div id="bubbles-container">
       
     </div>
-
+      <video src="" id="full-screen-win"></video>
+    
     <script src="js/demo.js"></script>
     <script src="js/folderDisplay.js"></script>
     <script src="js/jamDisplay.js"></script>

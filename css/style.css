@@ -1564,7 +1564,8 @@ button.imgClickInd {
 #full-screen-win{
 	position: absolute;
 	top: 0;
-	width: 100%
+	width: 100%;
+	z-index: -10;
 }
 
 .case-img-wrap:hover .imgClickInd{
@@ -2394,6 +2395,9 @@ transform: translate(0px, 0px)
     transform: translate(-50%, -50%);
     font-size: 4.5vw;
 	}
+	.menu-cases li:hover p:after{
+		left: 10%;
+	}
 	.skansing-inspiration {
     flex-direction: column;
 	}
@@ -2626,10 +2630,113 @@ transform: translate(0px, 0px)
 		animation: rumbleBorder 0.2s ease-in infinite;
 	}
 	.case-img-pc {
-    width: 97%;
+    	width: 97%;
 	}
 	#full-screen-win{
 		height: 100vh;
+	}
+	.win-video-wrapper{
+		overflow: hidden;
+	}
+	body {
+		overflow-y: auto;
+	}
+	.about {
+		width: 100%;
+		top: 0%;
+		height: auto;
+		z-index: 2000;
+		overflow: visible;
+		overflow-y: scroll;
+	}
+	
+	.about-text-section {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		font-size: 26px;
+		padding: 9% 0px;
+	}
+	.about-text-section p {
+		width: 83%;
+		margin-left: 0;
+		margin-top: 0%;
+		line-height: 42px;
+		text-align: center;
+	}
+	.about-text-section .center {
+		align-items: center;
+	}
+	.about-text-section mark:hover {
+		color: #ffffff;
+	}
+	.about-text-section mark:hover:after {
+		content:none;
+	position: absolute;
+	color: #fff;
+	left: 0;
+  /*left: 1.45vw;*/
+	animation: none;
+	}
+	.about-contacts svg {
+		width: 17vw;
+	}
+	.center-about-footer {
+		padding: 5% 0;
+	}
+	.contact-section {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		height: 45vh;
+		text-align: center;
+		width: 98%;
+	}
+	.CTAcontact {
+		padding: 22px 67px;
+		font-size: 7vw;
+		position: relative;
+	}
+	.contact {
+		width: 100%;
+		top: 0%;
+	}
+	.contacttext {
+		margin-left: 0;
+		margin-top: 28px;
+		width: 100%;
+	}
+	.contact-section h2 {
+		font-size: 5vw;
+		margin-top: 6%;
+    	margin-bottom: 7%;
+	}
+	.contact-footer .contacts-contacts {
+		width: 17vw;
+		margin: 4% 8%;
+	}
+	.contact-footer {
+		grid-column-start: 1;
+		grid-column-end: 5;
+		height: 18vh;
+		width: 98%;
+	}
+	.CTAcontact:hover p:after{
+		  left: 65px;
+	  }
+	  .CTAcontact:active{
+		  background:white;
+		  color: black;
+	  }
+	  .experiments {
+		width: 100%;
+		top: 2%;
+	}
+	#to-be-an {
+		width: 102vw;
+		margin-left: 0;
+		margin-top: 16vh;
+	}
+	.page.experiments button.pageClose {
+		top: 5%;
 	}
 }
 

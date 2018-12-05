@@ -161,8 +161,10 @@ class ShapeOverlays {
   //about functions
   var allMarks = document.querySelectorAll('.about-text-section p mark');
   for (let i = 0; i < allMarks.length; i++) {
+    if(window.innerWidth >736){
       allMarks[i].addEventListener('mouseover', onMarkMouseOver);  
       allMarks[i].addEventListener('mouseout', onMarkMouseOut);
+    }    
   }
 
   function hideTextAndShowResource() {
@@ -541,6 +543,7 @@ function pageCloseHandler(){
       function mobileDisplayPage(){
         setTimeout(() => {
           var page = document.querySelectorAll('.page');
+          var sound = document.querySelector('#theSound');
           for (var i = 0; i < page.length; i++) {
             page[i].style.display = "none";
           }
@@ -553,6 +556,12 @@ function pageCloseHandler(){
             sound.autoplay = true;
             sound.loop = true;
           }
+          /*if(linkId == "about"){
+            var vidback = document.querySelector('#about-background');
+            window.addEventListener('scroll', function(e) {
+              vidback.style.top = window.scrollY + "px";
+            }); 
+          }*/
           var page1 = document.querySelector(pageClass);
           page1.style.display = "grid";
           page1.scrollTop = 0;

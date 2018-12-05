@@ -323,10 +323,16 @@ function countBalls(){
 function congrats(){
   var backWin = document.querySelector('#full-screen-win');
   var sti = "assets/applause.mp4";
+  var stiMob = "assets/applausemob.mp4";
   var sounds = document.querySelector('#bubbleSounds');
   
   setTimeout(function(){
-    backWin.src = sti;
+    if(window.innerWidth < 736){
+      backWin.src = stiMob;
+    }
+    else{
+      backWin.src = sti;
+    } 
     backWin.autoplay = true;
     backWin.loop = true;
     sounds.src = "assets/"+"applause"+".wav";
