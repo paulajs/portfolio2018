@@ -11,6 +11,7 @@ var interval = setInterval(function() {
       bubblesIntroPan.style.display = "block";
       bubblesIntroclick.style.display = "block";
       isready = true;
+      
   }    
 }, 100);
 
@@ -70,7 +71,8 @@ class ShapeOverlays {
     }
     else {
       this.isAnimating = false;
-      var vid = document.querySelector('.wrapper video');
+      var vid = document.querySelector('.intro-video');
+      // @todo
       vid.src = "";
       shapeOverlays.style.display = "none";
       var canvas = document.querySelector('#bubbles-container');
@@ -116,9 +118,11 @@ class ShapeOverlays {
   var skansingBackVideo = document.querySelector('#skansing-back-vid');
 
   if(window.innerWidth < 736){
-    skansingBackVideo.src = "assets/skansingvid2mob.mp4";
+    // @todo
+    // skansingBackVideo.src = "assets/skansingvid2mob.mp4";
   }else{
-    skansingBackVideo.src = "assets/skansingvid44.mp4";
+    // @todo 
+    // skansingBackVideo.src = "assets/skansingvid44.mp4";
   }
 
   function onEmailCopyClickHandler(){
@@ -212,6 +216,7 @@ class ShapeOverlays {
 
     if(isMovie) {
       lastViewedMarkWasMovie = true;
+      // @todo
       backgroundContainerVideo.src = resourceTarget;
       if(isPlayingVideo) {
         return;
@@ -230,9 +235,10 @@ class ShapeOverlays {
     if(lastViewedMarkWasMovie) {
       lastViewedMarkWasMovie = false;
       playVideoPromise.then( () => {
-        backgroundContainerVideo.pause();
+        // @todo 
+         backgroundContainerVideo.pause();
         isPlayingVideo = false;
-        backgroundContainerVideo.src = "";
+         backgroundContainerVideo.src = "";
       });
     }
     showTextAndNormalizeResource();
@@ -460,8 +466,9 @@ function pageCloseHandler(){
         if(window.innerWidth > 736){
           overlay.toggle();
         }
-        var vid = document.querySelector('.wrapper video');
-        vid.pause();
+        var vid = document.querySelector('.intro-video');
+        // @todo
+         vid.pause();
         displayPageById(linkId);
 
         setTimeout(function() {
@@ -551,6 +558,9 @@ function pageCloseHandler(){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;
             sound.loop = true;
+            var videoBackground = document.querySelector('.to-be-back');
+              videoBackground.src = "assets/eyes.mp4";
+              videoBackground.play(); 
           }
           var page1 = document.querySelector(pageClass);
           page1.style.display = "grid";
@@ -559,6 +569,17 @@ function pageCloseHandler(){
       }
 
       function mobileDisplayPage(){
+        let videoBackground = document.querySelector('.to-be-back');
+            videoBackground.load();
+            videoBackground.src = "assets/eyes.mp4";
+              videoBackground.play()
+              .then( () => {
+                alert(videoBackground);
+              })
+              .catch( (reason) => {
+                alert(`Sorry the video did not play because ${reason}`);
+              });
+            
         setTimeout(() => {
           var page = document.querySelectorAll('.page');
           var sound = document.querySelector('#theSound');
@@ -573,14 +594,7 @@ function pageCloseHandler(){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;
             sound.loop = true;
-            var videoBackground = document.querySelector('.to-be-back');
-            if(window.innerWidth >736){
-              videoBackground.src = "assets/eyes.mp4";
-            }
-            else{
-              videoBackground.src = "assets/eyesmob.mp4";
-              videoBackground.autoplay = true;
-            }
+            
           }
           /*if(linkId == "about"){
             var vidback = document.querySelector('#about-background');
@@ -597,20 +611,24 @@ function pageCloseHandler(){
       function setVideo(e){
         document.querySelector('#bubbles-container').style.visibility = "hidden";
         if(window.innerWidth > 736){
-          var vid = document.querySelector('.wrapper video');
+          var vid = document.querySelector('.intro-video');
           var sound = document.querySelector('#theSound');
           vid.style.display = "block";
           var target = e.target;
           var url = "assets/" + target.id + ".mp4";
           var audio = "assets/" + target.id + ".mp3";
+          // @todo
           vid.src = url;
           sound.src = audio;
           sound.loop = "true";
           sound.play();
+          // @todo
+          
           vid.loop = "true";
           vid.play().catch(() => {
             // throw away pause errors!
           });
+          
         }
       }
 
@@ -620,10 +638,11 @@ function pageCloseHandler(){
           canvas.style.visibility = "visible";
         }
         if(window.innerWidth > 736){
-          var vid = document.querySelector('.wrapper video');
+          var vid = document.querySelector('.intro-video');
         var sound = document.querySelector('#theSound');
         sound.pause();
         sound.src="";
+        // @todo .wrapper video
         vid.pause();
         vid.src = "";
         document.querySelector('.wrapper').style.background ="transparent";
