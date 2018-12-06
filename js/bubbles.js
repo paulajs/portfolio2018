@@ -30,12 +30,22 @@ var colorArray = [
 ];
 
 console.log("window.innerWidth", window.innerWidth)
-if(window.innerWidth >= 736){
-  initiateCanvasDesktop();
-}
-else{
-  initiateCanvasMobile();
-}
+
+var interval2 = setInterval(function() {
+  if(isready == true) {
+    console.log(isready);
+    clearInterval(interval2);
+    if(window.innerWidth >= 736){
+      initiateCanvasDesktop();
+    }
+    else{
+      initiateCanvasMobile();
+    }
+  }
+     
+}, 100);
+
+
 
 function init(distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn){
   scene = new THREE.Scene();
@@ -203,7 +213,7 @@ function makeAddSphere(color, posX, posY, posZ, radius, name, delay){
   new TWEEN.Tween( mesh.scale ).to( {
     x:1,
     y:1,
-    z:1 }, 800 ).delay(20*delay)
+    z:1 }, 800 ).delay(30*delay)
   .easing( TWEEN.Easing.Elastic.Out).start();
   scene.add(mesh);
 }
@@ -329,12 +339,11 @@ function congrats(){
   setTimeout(function(){
     if(window.innerWidth < 736){
       backWin.src = stiMob;
+      backWin.play();
     }
     else{
       backWin.src = sti;
     } 
-    backWin.autoplay = true;
-    backWin.loop = true;
     sounds.src = "assets/"+"applause"+".wav";
     sounds.play();
   }, 500);

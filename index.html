@@ -21,7 +21,8 @@
     </script>
   </head>
   <body>
-    <video id="rotate-mobile" src="assets/rotate-mobile.mp4" autoplay loop mute></video>
+    <div id="loading-screen"></div>
+    <video id="rotate-mobile" src="assets/rotate-mobile.mp4" muted autoplay loop></video>
     <div class="displayImgBackgroundOpacity"></div>
     <audio id = "theSound"src=""></audio>
     <audio id="bubbleSounds" src=""></audio>
@@ -94,12 +95,7 @@
             <path class="shape-overlays__path"></path>
             <path class="shape-overlays__path"></path>
           </svg>
-         <!-- <img class="winimg" src="https://media.giphy.com/media/GStLeae4F7VIs/giphy.gif" alt="">-->
-          
-          <video preload muted = "auto" src=""></video>
-          
-          
-          
+          <video preload muted = "auto" src=""></video>    
         </div>
       </div>
       <div class="marquee">
@@ -158,7 +154,7 @@
               <p data-text="Visit page">Visit page</p>
             </button>
       </div>
-      <div class="skansing-inspiration">
+      <div class="inspiration skansing-inspiration grid-section">
         <div class="img-and-text">
           <p>Mr. Robot inspiration</p>
           <div class="case-img-wrap">
@@ -188,7 +184,7 @@
           </div>
         </div>
       </div>
-      <div class="skansing-experimentation">
+      <div class="experimentation skansing-experimentation grid-section">
         <h2 class="casesub-header">Experimentation</h2>
         <div class="center-wrap">
           <div class="img-and-text">
@@ -232,14 +228,14 @@
         </div>
        
       </div>
-      <div class="skansing-mobile-mockup">
+      <div class="skansing-mobile-mockup grid-section">
         <h2 class="casesub-header">Mobile mockup</h2>
         <div class="center-wrap">
             <img src="assets/mobmock1.png" alt="mobile mockup1"> 
             <img src="assets/mobmock2.png" alt="mobile mockup2">   
         </div>  
       </div>
-      <div class="skansing-desk-mock1">
+      <div class="skansing-desk-mock1 grid-section">
         <h2 class="casesub-header">Desktop mockup version 1</h2>
         <p class="hesehus-mock-para">
             The first version of the site contained a three.js background, 
@@ -251,7 +247,7 @@
       <div class="skansing-background-exp">
         <video id="skansing-back-vid" muted loop controls src="assets/skansingvid2.mp4"></video>
       </div>
-      <div class="skansing-desk-mock2">
+      <div class="skansing-desk-mock2 grid-section">
         <h2 class="casesub-header">Desktop mockup final version</h2>
         <p class="hesehus-mock-para">
             Simple is better, and with less distraction in the background.
@@ -303,7 +299,7 @@
                   <p data-text="Visit page">Visit page</p>
                 </button>
           </div>
-          <div class="hesehus-inspiration">
+          <div class="inspiration hesehus-inspiration grid-section">
               <div class="img-and-text">
                 <p>Moodboard of Hesehus’ design</p>
                 <div class="case-img-wrap">
@@ -325,7 +321,7 @@
               </div>
             </div>
      
-            <div class="hesehus-experimentation">
+            <div class="experimentation hesehus-experimentation grid-section">
                 <h2 class="casesub-header">Experimentation</h2>
                 <div class="center-wrap">
                   <div class="img-and-text">
@@ -357,7 +353,7 @@
                   </div>   
                 </div>  
               </div>
-              <div class="hesehus-storyboards">
+              <div class="hesehus-storyboards grid-section">
                   <h2 class="casesub-header">Storyboards</h2>
                   <div class="center-wrap">
                       <div class="img-and-text">
@@ -380,95 +376,40 @@
                           </div>
                   </div>
               </div>
-              <div class="hesehus-videos">
+              <div class="hesehus-videos grid-section">
                   <h2 class="casesub-header">Videos</h2>
-                  <div class="case-matas">
+                  <div class="case-matas videocase">
                     <p class="casevid-para night">Matas case video </p>
                       <div class="case-video">
-                        <video class="video" src="assets/video/Matas.mp4" preload></video>
-                        <!--<svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                           viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                          <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                          <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                        </svg>
-                        <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                           viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                          <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                          <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                          <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                        </svg>-->
+                        <video class="video" src="assets/video/Matas1.mp4" preload muted></video>
                       </div>
                     </div>
-                    <div class="case-kansas">
+                    <div class="case-kansas videocase">
                       <p class="casevid-para night">Fristads Kansas case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Fristads-kansas.mp4" preload></video>
-                          <!--<svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                          </svg>
-                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                          </svg>-->
+                          <video class="video" src="assets/video/Fristads-kansas1.mp4" preload muted></video>
                         </div>
                       </div>
-                      <div class="case-dan">
+                      <div class="case-dan videocase">
                         <p class="casevid-para night">Danoffice case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Danoffice.mp4" preload></video>
-                          <!--<svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                          </svg>
-                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                          </svg>-->
+                          <video class="video" src="assets/video/Danoffice1.mp4" preload muted></video>
                         </div>
                       </div>
-                      <div class="case-ins">
+                      <div class="case-ins videocase">
                         <p class="casevid-para night">Inspiration case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Inspiration.mp4" preload></video>
-                          <!--<svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                          </svg>
-                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                          </svg>-->
+                          <video class="video" src="assets/video/Inspiration1.mp4" preload muted></video>
                         </div>
                       </div>
-                      <div class="case-proces">
+                      <div class="case-proces videocase">
                         <p class="casevid-para night">Customer journey video.</p>
                           <div class="case-video">
-                            <video class="video" src="assets/video/Kunderejse.mp4" preload></video>
-                            <!--<svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                               viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                              <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                              <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                            </svg>
-                            <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                               viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                              <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                              <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                              <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                            </svg>-->
+                            <video class="video" src="assets/video/Kunderejse1.mp4" preload muted></video>
                           </div>
                         </div>
               </div>
-              <div class="hesehus-mockup">
+              <div class="hesehus-mockup grid-section">
                   <h2 class="casesub-header">Mockup of application</h2>
                   <p class="hesehus-mock-para">
                       Users at the fair can engage directly and watch a specific case video or the videos can be played as a
@@ -526,7 +467,7 @@
            
               
           </div>
-          <div class="nmg-inspiration">
+          <div class="inspiration nmg-inspiration grid-section">
               <div class="img-and-text">
                 <p>Inspiration from the danish countryside and farm 'hygge'.</p>
                 <div class="case-img-wrap">
@@ -550,12 +491,12 @@
                 <div class="img-and-text">
                   <p>Inspiration from Nøremadegaard itself</p>
                   <div class="case-img-wrap">
-                    <video  class="nmg-mood-video" src="assets/video-nmg-vibe.mp4" loop autoplay></video>
+                    <video  class="nmg-mood-video" src="assets/video-nmg-vibe.mp4" loop autoplay muted></video>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="nmg-design-obj">
+            <div class="nmg-design-obj grid-section">
                 <h2 class="casesub-header">Design objectives</h2>
                 <div class="postit-center">
                     <img src="assets/postit1.svg" alt="postit 1">  
@@ -566,7 +507,7 @@
                   
                 
             </div>
-            <div class="nmg-experimentation">
+            <div class="experimentation nmg-experimentation grid-section">
                 <h2 class="casesub-header">Experimentation</h2>
                 <p class="nmg-exp-para">Development of visual identity. Experiments with color, form and texture. Also research and development for logo. 
                    </p>
@@ -649,7 +590,7 @@
             </div>
            
 
-      <div id="nmg-results" class="case-result-nmg">
+      <div id="nmg-results" class="case-result-nmg grid-section">
           <h2 class="casesub-header">Result</h2>
         <p class="nmg-result-para">The result symbolises marmelade splatter dropped on floor like childrens playfulness in the kitchen.
           Results are illustrated with interactive 3d, you can zoom, pan and click to open the folder.</p>
@@ -658,43 +599,39 @@
             <button class="clickMe" type="button" data-source = "strawberry" data-type = "jam">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/strawgif.gif" alt="strawberry jam">
+            <img class="resultDisplay threeElement" src="assets/strawgif1.gif" alt="strawberry jam">
           </div>
           <div class="displayImgWrap">
             <button class="clickMe" type="button" data-source = "folder1" data-type = "folder">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/strawfolderGif.gif" alt="strawberry course booklet">
+            <img class="resultDisplay threeElement" src="assets/strawfolderGif1.gif" alt="strawberry course booklet">
           </div>
           <div class="displayImgWrap">
             <button class="clickMe" type="button" data-source = "kvaede" data-type = "jam">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/kvadgif.gif" alt="quince jam">
+            <img class="resultDisplay threeElement" src="assets/kvadgif1.gif" alt="quince jam">
           </div>
           <div class="displayImgWrap">
             <button class="clickMe" type="button" data-source = "folder2" data-type = "folder">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/kvadfolderGif.gif" alt="quince course booklet">
+            <img class="resultDisplay threeElement" src="assets/kvadfolderGif1.gif" alt="quince course booklet">
           </div>
           <div class="displayImgWrap">
             <button class="clickMe" type="button" data-source = "hyld" data-type = "jam">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/hyldgif.gif" alt="hyld jam">
+            <img class="resultDisplay threeElement" src="assets/hyldgif1.gif" alt="hyld jam">
           </div>
           <div class="displayImgWrap">
             <button class="clickMe" type="button" data-source = "folder3" data-type = "folder">
               <p  data-text="3d"> 3d</p>
             </button>
-            <img class="resultDisplay threeElement" src="assets/hyldfolderGif.gif" alt="hyld course booklet">
+            <img class="resultDisplay threeElement" src="assets/hyldfolderGif1.gif" alt="hyld course booklet">
           </div>
         </div>
-      </div>
-      <div class="case-renderresult-nmg">
-        <h2 class="casesub-header">Render of products</h2>
-          <img class="nmg-render" src="assets/render2.jpg" alt="product render">  
       </div>
     </div>
     <div class="page about">
@@ -716,7 +653,7 @@
               </button>
         </div>
         </div>  
-        <div class="about-text-section">
+        <div class="about-text-section grid-section">
             <div class="center">
                 <p>My name is Paula, I’m a multimedia designer, who lives in 
                   <mark 
@@ -738,29 +675,25 @@
                     class="mark-paint" 
                     data-text="paint"
                     data-resource="assets/paint.mp4"
-                  >
-                    paint</mark> 
+                  >paint</mark> 
                    and a brush or 
                   <mark 
                     class="mark-pen" 
                     data-text="pen"
                     data-resource="assets/pen.mp4"
-                  >
-                    pen</mark> 
+                  >pen</mark> 
                   and paper. Other times when I’m down and 
                   <mark 
                     class="mark-stressed" 
                     data-text="stressed"
                     data-resource="/assets/stressed.mp4"
-                  >
-                    stressed</mark> 
+                  >stressed</mark> 
                   I take a walk in 
                   <mark 
                     class="mark-nature" 
                     data-text="nature"
                     data-resource="assets/nature.mp4"
-                  >
-                    nature</mark>.
+                  >nature</mark>.
                     </p>
               <p>I mostly use Adobe Illustrator, Photoshop and  InDesign, but I’m able 
                 to work a bit with Premiere Pro and After Effects too. 
@@ -794,7 +727,7 @@
           <img src="" alt="">
           <video src="" loop></video>
         </div>
-        <div class="contact-info">
+        <div class="contact-info grid-section">
           <div class="center-about-footer">
             <div class="about-contacts">
               <div class="about-email">
@@ -804,15 +737,12 @@
                 <p class="email">paulajoannasobczak@gmail.com</p>
               </div>
             </div>
-            <!--<img src="assets/SVG/email.svg" alt="mail">-->
             <div class="about-contacts">
                 <svg class="about-linked" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.2 94.2"><title>linkedin</title><path d="M0,81.56V12.64c.09-.33.18-.67.26-1A14,14,0,0,1,10.69.48c.64-.18,1.3-.32,2-.48H81.56c.33.08.67.18,1,.25A14,14,0,0,1,93.71,10.69c.19.64.33,1.3.49,2V81.56c-.08.31-.17.62-.24.93-1.27,5.84-4.75,9.62-10.52,11.24-.62.18-1.25.32-1.88.47H12.64L11.71,94A14,14,0,0,1,.48,83.51C.3,82.87.16,82.21,0,81.56ZM54.7,38.11c0-1.85,0-3.5,0-5.15,0-.49-.09-.73-.65-.72q-6.44,0-12.86,0c-.56,0-.68.21-.67.71,0,1.33.06,2.66.06,4q0,18.51-.07,37c0,.78.22,1,1,1q6.17,0,12.33,0c.68,0,.91-.16.9-.87,0-2.33,0-4.66,0-7,0-5.64.06-11.29,0-16.93a7.85,7.85,0,0,1,7.1-7.62c2.48-.16,5.08.67,6.39,3.18a12.12,12.12,0,0,1,1.31,5.65q0,11.32,0,22.64c0,.71.17,1,.91.94q6.21,0,12.41,0c.67,0,.91-.15.91-.87,0-7.82,0-15.64,0-23.47a25.13,25.13,0,0,0-1.91-10.34,14.36,14.36,0,0,0-7.11-7.43,17.52,17.52,0,0,0-8.65-1.46,13.25,13.25,0,0,0-9.2,4.21C56.18,36.31,55.52,37.15,54.7,38.11Zm-22,15.52q0-10.26,0-20.54c0-.64-.16-.86-.84-.86-4.16,0-8.33,0-12.49,0-.74,0-.91.23-.9.94q0,20.38,0,40.78c0,.7.15,1,.9.94,4.12,0,8.23,0,12.34,0,1,0,1,0,1-1ZM26,11.72c-3.51,0-7,1.59-8.12,5.56a7.51,7.51,0,0,0,3.62,8.23,9.55,9.55,0,0,0,5.34.84,7.24,7.24,0,0,0,6-10.56C31.44,12.91,28.88,11.84,26,11.72Z"/></svg>
             </div>
-            <!--<img src="assets/SVG/linkedin.svg" alt="linkedin">-->
             <div class="about-contacts">
                 <svg class="about-pin" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.73 88.63"><title>pinterest</title><path d="M31.27,86.61c4.61-6.55,6.28-14,8.1-21.58,6.37,5.69,14,6.09,21.44,1.47C73.05,58.87,78.26,36,64.88,23.76A27.59,27.59,0,0,0,47,16.44c-7.47-.34-14.48,1.15-20.64,5.63C15.65,29.85,12.65,45.6,20,56a24.45,24.45,0,0,0,4.64,4.31c.92.75,1.72.45,2-.82s.77-2.78,1-4.2a2.92,2.92,0,0,0-.38-1.93c-7-9.92-1.85-26,12.67-28.73a20.72,20.72,0,0,1,11.91,1.05c6,2.51,9.65,7.06,10.49,13.54.87,6.63-.24,12.92-4.32,18.4a11,11,0,0,1-10,4.8,6.1,6.1,0,0,1-5.77-7.58c.93-4,2.2-8,3.24-12a13.06,13.06,0,0,0,.35-3.25c0-2.41-.77-4.52-3.11-5.55a6.19,6.19,0,0,0-6.67,1,10.1,10.1,0,0,0-3.77,7.7,52.13,52.13,0,0,0,.6,6.68A11.21,11.21,0,0,1,33,52.73c-1.46,6.47-3.23,12.87-4.48,19.38-.66,3.47-.5,7.1-.66,10.67a24.9,24.9,0,0,0,.21,2.76,42.79,42.79,0,0,1-17.94-13,43.13,43.13,0,0,1-9.71-34A44.28,44.28,0,0,1,53.56,1C78.8,6.42,94.21,32.13,86.91,56.73A44.26,44.26,0,0,1,31.27,86.61Z"/></svg>
             </div>
-            <!--<img src="assets/SVG/pinterest.svg" alt="pinterest">-->
           </div>
         </div>
     </div>
@@ -835,14 +765,14 @@
                 </button>
           </div>
           </div>
-          <div class="contact-section">
+          <div class="contact-section grid-section">
             <p class="contacttext">Preferably by mail</p>
             <h2 class="contactMail">paulajoannasobczak@gmail.com</h2>
             <button class="CTAcontact">
                 <p data-text="Copy email">Copy email</p>
               </button>
           </div> 
-          <div class="contact-footer">
+          <div class="contact-footer grid-section">
               <div class="center-contact-footer">
                   <div class="contacts-contacts">
                       <svg class="about-linked" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.2 94.2"><title>linkedin</title><path d="M0,81.56V12.64c.09-.33.18-.67.26-1A14,14,0,0,1,10.69.48c.64-.18,1.3-.32,2-.48H81.56c.33.08.67.18,1,.25A14,14,0,0,1,93.71,10.69c.19.64.33,1.3.49,2V81.56c-.08.31-.17.62-.24.93-1.27,5.84-4.75,9.62-10.52,11.24-.62.18-1.25.32-1.88.47H12.64L11.71,94A14,14,0,0,1,.48,83.51C.3,82.87.16,82.21,0,81.56ZM54.7,38.11c0-1.85,0-3.5,0-5.15,0-.49-.09-.73-.65-.72q-6.44,0-12.86,0c-.56,0-.68.21-.67.71,0,1.33.06,2.66.06,4q0,18.51-.07,37c0,.78.22,1,1,1q6.17,0,12.33,0c.68,0,.91-.16.9-.87,0-2.33,0-4.66,0-7,0-5.64.06-11.29,0-16.93a7.85,7.85,0,0,1,7.1-7.62c2.48-.16,5.08.67,6.39,3.18a12.12,12.12,0,0,1,1.31,5.65q0,11.32,0,22.64c0,.71.17,1,.91.94q6.21,0,12.41,0c.67,0,.91-.15.91-.87,0-7.82,0-15.64,0-23.47a25.13,25.13,0,0,0-1.91-10.34,14.36,14.36,0,0,0-7.11-7.43,17.52,17.52,0,0,0-8.65-1.46,13.25,13.25,0,0,0-9.2,4.21C56.18,36.31,55.52,37.15,54.7,38.11Zm-22,15.52q0-10.26,0-20.54c0-.64-.16-.86-.84-.86-4.16,0-8.33,0-12.49,0-.74,0-.91.23-.9.94q0,20.38,0,40.78c0,.7.15,1,.9.94,4.12,0,8.23,0,12.34,0,1,0,1,0,1-1ZM26,11.72c-3.51,0-7,1.59-8.12,5.56a7.51,7.51,0,0,0,3.62,8.23,9.55,9.55,0,0,0,5.34.84,7.24,7.24,0,0,0,6-10.56C31.44,12.91,28.88,11.84,26,11.72Z"/></svg>
@@ -1007,7 +937,7 @@
                 </div>
                 
                 <video class="to-be-back" src="assets/eyes.mp4" autoplay loop muted></video>
-                <img class="to-be-back2" src="assets/SVG/dots.svg" alt="">
+               
                 
             <button class="pageClose">
               <svg version="1.1" class="close_button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1023,20 +953,20 @@
           </div>
           
           <img class="bubbles-intro-zoom" src="assets/SVG/zoom.svg" alt="zoom">
-          <img class="bubbles-intro-pan" src="assets/SVG/pan.svg" alt="zoom">
-          <img class="bubbles-intro-click2" src="assets/SVG/click2.svg" alt="zoom">
+          <img class="bubbles-intro-pan" src="assets/SVG/pan.svg" alt="pan">
+          <img class="bubbles-intro-click2" src="assets/SVG/click2.svg" alt="click">
           
     <div id="bubbles-container">
       
     </div>
-      <video src="" id="full-screen-win"></video>
+      <video src="" id="full-screen-win" type="video/mp4" preload loop muted></video>
     
     <script src="js/demo.js"></script>
     <script src="js/folderDisplay.js"></script>
     <script src="js/jamDisplay.js"></script>
 		<script src="js/easings.js"></script>
-    <script src="js/bubbles.js"></script>
 		<script src="js/main.js"></script>
+    <script src="js/bubbles.js"></script>
 
   </body>
 </html>
