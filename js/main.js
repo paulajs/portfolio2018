@@ -1,16 +1,32 @@
 var isready = false;
 var interval = setInterval(function() {
+  var increment = 0;
+  var percentage = document.querySelector('.load-percent');
+  var setI = setInterval(()=>{
+    increment = increment + 1;
+    var displayPercent = increment + "%";
+    percentage.innerHTML = displayPercent;
+    if(increment ==100){
+      clearInterval(setI);
+    }
+  },18);
   if(document.readyState === 'complete') {
       clearInterval(interval);
       var loadingScreen = document.querySelector('#loading-screen');
       var bubblesIntroZoom = document.querySelector('.bubbles-intro-zoom');
       var bubblesIntroPan = document.querySelector('.bubbles-intro-pan');
       var bubblesIntroclick = document.querySelector('.bubbles-intro-click2');
-      loadingScreen.style.display = "none";
-      bubblesIntroZoom.style.display = "block";
-      bubblesIntroPan.style.display = "block";
-      bubblesIntroclick.style.display = "block";
-      isready = true;
+      
+      setTimeout(()=>{
+       
+        loadingScreen.style.display = "none";
+        bubblesIntroZoom.style.display = "block";
+        bubblesIntroPan.style.display = "block";
+        bubblesIntroclick.style.display = "block";
+        isready = true;
+      }, 2200);
+      
+      
   }    
 }, 100);
 
@@ -246,7 +262,10 @@ class ShapeOverlays {
     overlay = new ShapeOverlays(elmOverlay, 10, 600, 340, 130);
   }
   for (var i = 0; i < pageClose.length; i++) {
-    pageClose[i].addEventListener('click', pageCloseHandler);
+    pageClose[i].addEventListener('click', ()=>{
+      window.history.go(-1);
+      pageCloseHandler();
+    });
   }
 
   var opacityBackground = document.querySelector('.displayImgBackgroundOpacity');
@@ -329,6 +348,7 @@ class ShapeOverlays {
 
 function pageCloseHandler(){
   pageActive = false;
+  
   var animBack = document.querySelector('#animation-case-backg');
   animBack.style.display = "none";
   document.querySelector('.wrapper').style.overflow = "hidden";
@@ -381,7 +401,7 @@ function pageCloseHandler(){
     video[i].addEventListener('click', (e) => {
       e.target.volume = 0.05;
       console.log('vid controls', e.target.controls);
-      /*var parent = e.target.parentNode;
+      var parent = e.target.parentNode;
       var playButton = parent.querySelector('.play-button');
       var pauseButton = parent.querySelector('.pause-button');
       if (e.target.paused) {
@@ -397,7 +417,7 @@ function pageCloseHandler(){
         setTimeout(function(){
           pauseButton.style.display = "none";
         }, 450);
-      }*/
+      }
     });
     video[i].addEventListener('mouseover', (e) => {
       e.target.setAttribute('controls', true);
@@ -515,6 +535,9 @@ function pageCloseHandler(){
         }
         return linkId;
       }
+      window.onpopstate = function(event){
+        pageCloseHandler();
+      }
 
       function displayPageById(linkId, pageActive){
         pageActive = true;
@@ -526,12 +549,14 @@ function pageCloseHandler(){
         var backgr = document.querySelector('#animation-case-backg');
         backgr.style.display = "block";
         if(window.innerWidth < 736){
-          mobileDisplayPage()
+          mobileDisplayPage();
+          
         }
         else{
           sound.play();
           sound.loop = false;
-          desktopDisplayPage()
+          desktopDisplayPage();
+          
         }
         
       }
@@ -547,6 +572,8 @@ function pageCloseHandler(){
           wrapper.style.overflowY = "scroll";
           wrapper.scrollTop = 0;
           var pageClass = "."+linkId;
+          var stateObj = { page: "linkId" };
+          history.pushState(stateObj, "page", linkId+".html");
           if(linkId =="experiments"){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;

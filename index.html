@@ -6,7 +6,15 @@
     <meta name="theme-color" content="#000">
     <title>paulaJS</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preload" as="image" href="assets/tvload-mobile.png">
+    <link rel="preload" as="image" href="assets/tvload.png">
+    <link rel="preload" as="video" href="assets/about.mp4">
+    <link rel="preload" as="video" href="assets/contact.mp4">
+    <link rel="preload" as="video" href="assets/experiments.mp4">
+    <link rel="preload" as="video" href="assets/skansingit.mp4">
+    <link rel="preload" as="video" href="assets/hesehus.mp4">
+    <link rel="preload" as="video" href="assets/norremadegaard.mp4">
     <script src="js/three/three.min.js"></script>
     <script src="js/three/OrbitControls.js"></script>
     <script src="js/three/FlyControls.js"></script>
@@ -21,8 +29,13 @@
     </script>
   </head>
   <body>
-    <div id="loading-screen"></div>
-    <video id="rotate-mobile" src="assets/rotate-mobile.mp4" muted autoplay loop></video>
+    <div id="loading-screen">
+      <p class="load-percent"></p>
+      <img class="loading-img" src="assets/tvload.png" alt="">
+      <img class="loading-img-mob" src="assets/tvload-mobile.png" alt="">
+      <div class="loading-fill"></div>
+    </div>
+    <video id="rotate-mobile" src="assets/rotate-mobile.mp4" muted autoplay loop disableRemotePlayback></video>
     <div class="displayImgBackgroundOpacity"></div>
     <audio id = "theSound"src=""></audio>
     <audio id="bubbleSounds" src=""></audio>
@@ -52,7 +65,7 @@
     <p class="pointsDisplay">
 
     </p>
-    <video preload id="noise" src="assets/noise.mp4"></video>
+    <video preload="none" id="noise" src="assets/noise.mp4"></video>
     <div class="container">
       <div class="item item-1">
         <p class="tag">Freelance Web Ninja</p>
@@ -95,7 +108,7 @@
             <path class="shape-overlays__path"></path>
             <path class="shape-overlays__path"></path>
           </svg>
-          <video preload muted = "auto" src=""></video>    
+          <video preload="none" muted = "auto" src=""></video>    
         </div>
       </div>
       <div class="marquee">
@@ -168,7 +181,7 @@
         <div class="img-and-text">
           <p>Cyber punk inspiration</p>
           <div class="case-img-wrap">
-            <img src="assets/cyberpunk.png" alt="cyberpunk">
+            <img src="assets/cyberpunk1.jpg" alt="cyberpunk">
             <button class="imgClickInd interactive" type="button" name="button">
                 <p data-text = "click!">click!</p>
             </button>
@@ -177,7 +190,7 @@
         <div class="img-and-text">
           <p>Cliché security inspiration</p>
           <div class="case-img-wrap">
-            <img src="assets/hacker.png" alt="hacker">
+            <img src="assets/hacker1.jpg" alt="hacker">
             <button class="imgClickInd interactive" type="button" name="button">
                 <p data-text = "click!">click!</p>
             </button>
@@ -219,7 +232,7 @@
           <div class="skexp-img-and-text">
             <p>Later logos</p>
             <div class="case-img-wrap">
-              <img src="assets/skansing-logo-late.png" alt="logo later">
+              <img src="assets/skansing-logo-late1.png" alt="logo later">
               <button class="imgClickInd interactive" type="button" name="button">
                   <p data-text = "click!">click!</p>
               </button>
@@ -245,7 +258,7 @@
           
       </div>
       <div class="skansing-background-exp">
-        <video id="skansing-back-vid" muted loop controls src="assets/skansingvid2.mp4"></video>
+        <video id="skansing-back-vid" muted loop autoplay src="assets/skansingvid2.mp4"></video>
       </div>
       <div class="skansing-desk-mock2 grid-section">
         <h2 class="casesub-header">Desktop mockup final version</h2>
@@ -303,7 +316,7 @@
               <div class="img-and-text">
                 <p>Moodboard of Hesehus’ design</p>
                 <div class="case-img-wrap">
-                  <img src="assets/hesehus-indtryk1.jpg" alt="Hesehus indtryk">
+                  <img src="assets/hesehus-indtryk11.jpg" alt="Hesehus indtryk">
                 <button class="imgClickInd interactive" type="button" name="button">
                   <p data-text = "click!">click!</p>
                 </button>
@@ -313,7 +326,7 @@
               <div class="img-and-text">
                 <p>Research of e-commerce fairs.</p>
                 <div class="case-img-wrap">
-                  <img src="assets/messe.jpg" alt="messe">
+                  <img src="assets/messe1.jpg" alt="messe">
                   <button class="imgClickInd interactive" type="button" name="button">
                       <p data-text = "click!">click!</p>
                   </button>
@@ -327,7 +340,7 @@
                   <div class="img-and-text">
                     <p class="hesehus-exp-para">Development of graphic universe for the cases</p>
                     <div class="case-img-wrap">
-                        <img src="assets/ideation.png" alt="ideation">
+                        <img src="assets/ideation1.png" alt="ideation">
                         <button class="imgClickInd interactive" type="button" name="button">
                           <p data-text = "click!">click!</p>
                         </button>
@@ -336,7 +349,7 @@
                   <div class="img-and-text">
                     <p class="hesehus-exp-para">Work process. Boat concept.</p>
                       <div class="case-img-wrap">
-                          <img src="assets/hes-boat.png" alt="process-boat">
+                          <img src="assets/hes-boat1.png" alt="process-boat">
                           <button class="imgClickInd interactive" type="button" name="button">
                             <p data-text = "click!">click!</p>
                           </button>
@@ -345,7 +358,7 @@
                   <div class="img-and-text">
                     <p class="hesehus-exp-para">Work process. Space concept.</p>
                     <div class="case-img-wrap">
-                      <img src="assets/mood-process.png" alt="process-space">
+                      <img src="assets/mood-process1.png" alt="process-space">
                       <button class="imgClickInd interactive" type="button" name="button">
                         <p data-text = "click!">click!</p>
                       </button>
@@ -359,7 +372,7 @@
                       <div class="img-and-text">
                           <p>Storyboard example for Inspiration </p>
                             <div class="case-img-wrap">
-                                <img src="assets/inspiration.png" alt="storyboard inspiration">
+                                <img src="assets/inspiration1.png" alt="storyboard inspiration">
                                 <button class="imgClickInd interactive" type="button" name="button">
                                   <p data-text = "click!">click!</p>
                                 </button>
@@ -368,7 +381,7 @@
                         <div class="img-and-text">
                             <p>Storyboard example for Danoffice</p>
                               <div class="case-img-wrap">
-                                  <img src="assets/danoffice.png" alt="storyboard fristads kansas">
+                                  <img src="assets/danoffice1.png" alt="storyboard fristads kansas">
                                   <button class="imgClickInd interactive" type="button" name="button">
                                     <p data-text = "click!">click!</p>
                                   </button>
@@ -381,31 +394,76 @@
                   <div class="case-matas videocase">
                     <p class="casevid-para night">Matas case video </p>
                       <div class="case-video">
-                        <video class="video" src="assets/video/Matas1.mp4" preload muted></video>
+                        <video class="video" src="assets/video/Matas1.mp4" poster="assets/video/Matas1.png" preload="none" muted></video>
+                        <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                	        <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                	        <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                        </svg>
+                        <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                	        <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                	        <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                	        <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                        </svg>
                       </div>
                     </div>
                     <div class="case-kansas videocase">
                       <p class="casevid-para night">Fristads Kansas case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Fristads-kansas1.mp4" preload muted></video>
+                          <video class="video" src="assets/video/Fristads-kansas1.mp4" poster="assets/video/Fristads-kansas1.png" preload="none" muted></video>
+                          <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                          </svg>
+                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                          </svg>
                         </div>
                       </div>
                       <div class="case-dan videocase">
                         <p class="casevid-para night">Danoffice case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Danoffice1.mp4" preload muted></video>
+                          <video class="video" src="assets/video/Danoffice1.mp4" poster="assets/video/Danoffice1.png" preload="none" muted></video>
+                          <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                          </svg>
+                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                          </svg>
                         </div>
                       </div>
                       <div class="case-ins videocase">
                         <p class="casevid-para night">Inspiration case video</p>
                         <div class="case-video">
-                          <video class="video" src="assets/video/Inspiration1.mp4" preload muted></video>
+                          <video class="video" src="assets/video/Inspiration1.mp4" poster="assets/video/Inspiration1.png" preload="none" muted></video>
+                          <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                          </svg>
+                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                          </svg>
                         </div>
                       </div>
                       <div class="case-proces videocase">
                         <p class="casevid-para night">Customer journey video.</p>
                           <div class="case-video">
-                            <video class="video" src="assets/video/Kunderejse1.mp4" preload muted></video>
+                            <video class="video" src="assets/video/Kunderejse1.mp4" poster="assets/video/Kunderejse1.png" preload="none" muted></video>
+                            <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                              <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                              <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                            </svg>
+                            <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                              <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                              <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                              <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                            </svg>
                           </div>
                         </div>
               </div>
@@ -471,7 +529,7 @@
               <div class="img-and-text">
                 <p>Inspiration from the danish countryside and farm 'hygge'.</p>
                 <div class="case-img-wrap">
-                  <img src="assets/idyl.png" alt="danish idyl">
+                  <img src="assets/idyl1.jpg" alt="danish idyl">
                 <button class="imgClickInd interactive" type="button" name="button">
                   <p data-text = "click!">click!</p>
                 </button>
@@ -481,7 +539,7 @@
               <div class="img-and-text">
                 <p>Inspiration from premium products and retro products.</p>
                 <div class="case-img-wrap">
-                  <img src="assets/varer.png" alt="messe">
+                  <img src="assets/varer1.jpg" alt="messe">
                   <button class="imgClickInd interactive" type="button" name="button">
                       <p data-text = "click!">click!</p>
                   </button>
@@ -491,7 +549,7 @@
                 <div class="img-and-text">
                   <p>Inspiration from Nøremadegaard itself</p>
                   <div class="case-img-wrap">
-                    <video  class="nmg-mood-video" src="assets/video-nmg-vibe.mp4" loop autoplay muted></video>
+                    <video  class="nmg-mood-video" src="assets/video-nmg-vibe.mp4" loop autoplay muted disableRemotePlayback></video>
                   </div>
                 </div>
               </div>
@@ -559,7 +617,7 @@
                     </button>
                   </div>
                   <div class="case-img-wrap">
-                    <img src="assets/nmg-ide3.png" alt="experimentation2">
+                    <img src="assets/nmg-ide31.jpg" alt="experimentation2">
                     <button class="imgClickInd interactive" type="button" name="button">
                         <p data-text = "click!">click!</p>
                     </button>
@@ -936,7 +994,7 @@
                   
                 </div>
                 
-                <video class="to-be-back" src="assets/eyes.mp4" autoplay loop muted></video>
+                <video class="to-be-back" src="assets/eyes.mp4" preload="auto" autoplay loop muted disableRemotePlayback></video>
                
                 
             <button class="pageClose">
@@ -959,7 +1017,7 @@
     <div id="bubbles-container">
       
     </div>
-      <video src="" id="full-screen-win" type="video/mp4" preload loop muted></video>
+      <video src="" id="full-screen-win" type="video/mp4" preload="auto" loop muted disableRemotePlayback></video>
     
     <script src="js/demo.js"></script>
     <script src="js/folderDisplay.js"></script>

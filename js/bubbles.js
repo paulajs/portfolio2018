@@ -282,7 +282,7 @@ function touchMobileSetColor(objectMaterial){
 
 function displayPoints(elem, array, e, posX, posY){
   var points =(array.length+1)*1000;
-  var backgrounds = ['../assets/points-background1.png','../assets/points-background2.png'];
+  var backgrounds = ['../assets/points-background1.svg','../assets/points-background2.svg'];
   var randomNum = Math.floor(Math.random()*2);
   var str = "+"+String(points);
   elem.innerHTML = str;
@@ -343,6 +343,7 @@ function congrats(){
     }
     else{
       backWin.src = sti;
+      backWin.play();
     } 
     sounds.src = "assets/"+"applause"+".wav";
     sounds.play();
