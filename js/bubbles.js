@@ -156,7 +156,18 @@ function onDocumentMouseDown( e ) {
   if(Date.now()<newClick){return}
   if (gameEnd == true) {
     gameEnd = false;
-    window.location.reload();
+    var backWin = document.querySelector('#full-screen-win');
+    backWin.src = "";
+    while(scene.children.length > 0){ 
+      scene.remove(scene.children[0]); 
+  }
+    if(window.innerWidth >= 736){
+      initiateCanvasDesktop();
+    }
+    else{
+      initiateCanvasMobile();
+    }
+    //window.location.reload();
   }
   clickTime = Date.now();
   newClick = clickTime + 1600;

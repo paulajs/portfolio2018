@@ -573,7 +573,7 @@ function pageCloseHandler(){
           wrapper.scrollTop = 0;
           var pageClass = "."+linkId;
           var stateObj = { page: "linkId" };
-          history.pushState(stateObj, "page", linkId+".html");
+          history.pushState(stateObj, "page", linkId+".wow");
           if(linkId =="experiments"){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;
@@ -596,6 +596,8 @@ function pageCloseHandler(){
           wrapper.style.overflowY = "scroll";
           wrapper.scrollTop = 0;
           var pageClass = "."+linkId;
+          var stateObj = { page: "linkId" };
+          history.pushState(stateObj, "page", linkId+".wow");
           if(linkId =="experiments"){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;
