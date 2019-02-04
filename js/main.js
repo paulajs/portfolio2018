@@ -533,7 +533,7 @@ function pageCloseHandler(){
           pageActive = false;
           if(window.innerWidth > 736){
             background.style.display = "block";
-            background.volume = 0.4;
+            background.volume = 0.1;
             background.play();
             background.style.zIndex = 0;
           }
