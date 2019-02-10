@@ -242,7 +242,7 @@ class ShapeOverlays {
     backgroundContainerImage.src = ""
     header.style.background = "white";
     cta.style.background = "white";
-    footer.style.background = "white";
+    footer.style.background = "linear-gradient(#ff90ff, #52ff97)";
     textsec.style.background = "white";
     text[0].style.color = "black";
     text[1].style.color = "black";
@@ -291,8 +291,8 @@ class ShapeOverlays {
   }
   for (var i = 0; i < pageClose.length; i++) {
     pageClose[i].addEventListener('click', ()=>{
-      window.history.go(-1);
       pageCloseHandler();
+      window.history.go(-1);
     });
   }
 
@@ -525,7 +525,9 @@ function pageCloseHandler(){
         if (overlay.isAnimating ==false && pageActive == false) {
           removeVideo(pageActive);
           var item5 = document.querySelector('.item-5');
-          item5.style.zIndex = -100;
+          if(window.innerWidth > 736){
+            item5.style.zIndex = -100;
+          }
         }
       }
       function linkMouseEnterHandler(e){
@@ -564,9 +566,7 @@ function pageCloseHandler(){
         }
         return linkId;
       }
-      window.onpopstate = function(event){
-        pageCloseHandler();
-      }
+     
 
       function displayPageById(linkId, pageActive){
         pageActive = true;
@@ -648,6 +648,7 @@ function pageCloseHandler(){
           page1.scrollTop = 0;
         }, 1100);
       }
+      
 
       function setVideo(e){
         document.querySelector('#bubbles-container').style.visibility = "hidden";
@@ -668,6 +669,9 @@ function pageCloseHandler(){
             // throw away pause errors!
           });
         }
+      }
+      window.onpopstate = function(event){
+        pageCloseHandler();
       }
 
       function removeVideo(pageActive){

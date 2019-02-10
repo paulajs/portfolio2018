@@ -111,6 +111,8 @@ function initiateCanvasMobile(){
   init(65, 3, 3, -95, -135, 20, false);//90
   //distance, numBallsX, numBallsY, xMin, yMin, radius, controlsOn
   animate();
+  document.querySelector('#theSound').muted = true;
+  document.querySelector('#bubbleSounds').muted = true;
   function animate(){
     var delta = clock.getDelta();
     requestAnimationFrame(animate);

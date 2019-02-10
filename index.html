@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="preload" as="image" href="assets/tvload-mobile.png">
-    <link rel="preload" as="image" href="assets/tvload.png">
+    <link rel="preload" as="image" href="assets/tvload1.png">
     <link rel="preload" as="video" href="assets/about.mp4">
     <link rel="preload" as="video" href="assets/contact.mp4">
     <link rel="preload" as="video" href="assets/experiments.mp4">
@@ -31,7 +31,7 @@
   <body>
     <div id="loading-screen">
       <p class="load-percent"></p>
-      <img class="loading-img" src="assets/tvload.png" alt="">
+      <img class="loading-img" src="assets/tvload1.png" alt="">
       <img class="loading-img-mob" src="assets/tvload-mobile.png" alt="">
       <div class="loading-fill"></div>
     </div>
@@ -53,6 +53,7 @@
       </svg>
       </div>
       <ul class="menu-mob menu-cases">
+          <li class="header-cases" >Info</li>
         <li id="about" class="case" ><p data-text="About">About</p></li>
         <li id="contact" class="case" ><p data-text="Contact">Contact</p></li>
         <li id="experiments" class="case" ><p data-text="Experiments">Experiments</p></li>
@@ -300,19 +301,20 @@
       </div>
       <div class="skansing-desk-mock1 grid-section">
         <h2 class="casesub-header">Desktop mockup version 1</h2>
-        <p class="hesehus-mock-para">
+        <p class="hesehus-mock-para skandesk">
             The first version of the site contained a three.js background, 
-            however it took up to much juice, so had to settle for something more simple.
+            however it took up to much juice, so we had to settle for something more simple.
           </p>
           <img src="assets/skansing-desk-first.png" alt="desktop mockup1">
           
       </div>
       <div class="skansing-background-exp">
+        <p>This was the first background</p>
         <video id="skansing-back-vid" muted loop autoplay src="assets/skansingvid2.mp4"></video>
       </div>
       <div class="skansing-desk-mock2 grid-section">
         <h2 class="casesub-header">Desktop mockup final version</h2>
-        <p class="hesehus-mock-para">
+        <p class="hesehus-mock-para skandesk">
             Simple is better, and with less distraction in the background.
           </p>
         <img src="assets/skansing-desk-fin.png" alt="desktop mockup final">
@@ -480,21 +482,7 @@
                           </svg>
                         </div>
                       </div>
-                      <div class="case-dan videocase">
-                        <p class="casevid-para night">Danoffice case video</p>
-                        <div class="case-video">
-                          <video class="video" src="assets/video/Danoffice1.mp4" poster="assets/video/Danoffice1.png" preload="none" muted></video>
-                          <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
-                            <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
-                            <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
-                          </svg>
-                          <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
-                            <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
-                            <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
-                            <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
-                          </svg>
-                        </div>
-                      </div>
+                      
                       <div class="case-ins videocase">
                         <p class="casevid-para night">Inspiration case video</p>
                         <div class="case-video">
@@ -510,6 +498,21 @@
                           </svg>
                         </div>
                       </div>
+                      <div class="case-dan videocase">
+                          <p class="casevid-para night">Danoffice case video</p>
+                          <div class="case-video">
+                            <video class="video" src="assets/video/Danoffice1.mp4" poster="assets/video/Danoffice1.png" preload="none" muted></video>
+                            <svg version="1.1" class="play-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 62" style="enable-background:new 0 0 62 62;" xml:space="preserve">
+                              <circle class="circle" cx="30.9" cy="30.9" r="30.5"/>
+                              <polygon class="triangle" points="47.7,30.9 22.1,16.1 22.1,45.7 	"/>
+                            </svg>
+                            <svg class="pause-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 63" style="enable-background:new 0 0 63 63;" xml:space="preserve">
+                              <circle class="circle" cx="31.5" cy="31.5" r="30.5"/>
+                              <line class="pause" x1="25.5" y1="20" x2="25.5" y2="43"/>
+                              <line class="pause" x1="37.5" y1="20" x2="37.5" y2="43"/>
+                            </svg>
+                          </div>
+                        </div>
                       <div class="case-proces videocase">
                         <p class="casevid-para night">Customer journey video.</p>
                           <div class="case-video">
@@ -616,8 +619,8 @@
               </div>
             </div>
               <div class="center-wrap-vid">
-                <div class="img-and-text">
-                  <p class="text-for-image">Inspiration from Nøremadegaard itself</p>
+                <div class="vid-and-text">
+                  <p class="text-for-image">Inspiration from Nøremadegaard!</p>
                   <div class="case-img-wrap">
                     <video  class="nmg-mood-video" src="assets/video-nmg-vibe.mp4" loop autoplay muted disableRemotePlayback></video>
                   </div>
@@ -869,12 +872,12 @@
                   data-resource="assets/gigs2.mp4"
                   >
                   gigs and projects</mark> to work on, so please contact 
-                  if you think we are a 
+                  if you think 
                   <mark 
                   class="mark-match" 
-                  data-text= "match"
+                  data-text= "we are a match"
                   data-resource="assets/match.mp4"
-                  >match</mark>.
+                  >we are a match</mark>.
                 </p>
                 
             </div>
