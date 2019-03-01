@@ -150,8 +150,8 @@ img.imgDisplay:hover{
 	stroke: #FF00FF;
 }
 .page{
-	grid-template-columns: repeat(12, 8.3333%);
-	grid-gap: 3px;
+	grid-template-columns: repeat(12, 7.9vw);
+	grid-gap: 0.2vw;
 	grid-template-rows: 15vh;
 	width: 98.4%;
 	background: black;
@@ -182,16 +182,16 @@ img.imgDisplay:hover{
 	flex-direction: column;
 }
 .skansing-process {
-    background: url(../assets/skansing-background.svg) no-repeat -0.5vw 11vh;
-    background-size: 98.5%;
+    background: url(../assets/skansing-background2.svg) no-repeat -0.5vw 11vh;
+    background-size: 101%;
 }
 .hesehus-process{
-	background: url(../assets/hesehus-background1.svg) no-repeat -0.5vw 11vh;
-    background-size: 98.5%;
+	background: url(../assets/hesehus-background2.svg) no-repeat -0.5vw 11vh;
+    background-size: 101%;
 }
 .nmg-process{
-	background: url(../assets/nmg-background.svg) no-repeat -0.5vw 11vh;
-    background-size: 98.5%;
+	background: url(../assets/nmg-background2.svg) no-repeat -0.5vw 11vh;
+    background-size: 101%;
 }
 .process-subheader{
 	background: #FF00FF;
@@ -207,7 +207,7 @@ img.imgDisplay:hover{
 .flush-right{
 	align-self: flex-end;
 	padding-left: 2vw;
-	margin-left: -1vw;
+	margin-right: -0.2vw;
 }
 .flush-left{
 	text-align: right;
@@ -215,7 +215,7 @@ img.imgDisplay:hover{
 	margin-left: -1vw;
 }
 .casesub-header{
-	width: 96%;
+	width: 97.3%;
     padding-left: 40px;
     margin-left: 0;
     align-self: flex-start;
@@ -475,7 +475,7 @@ audio#theSound {
   	align-items: center;
 }
 .nmg-design-obj h2{
-	width: 100%;
+	width: 97.3%;
 	background: #00FF66;
 }
 .postit-center{
@@ -574,7 +574,7 @@ audio#theSound {
 	padding: 7% 9%;
 }
 .skansing-mobile-mockup h2{
-	width: 100%;
+	width: 97.3%;
 	background: #00FF66;
 }
 .center-wrap{
@@ -613,7 +613,7 @@ audio#theSound {
   	align-items: center;
 }
 .case-result-nmg h2{
-	width: 100%;
+	width: 97.3%;
 	background: #00FF66;
 }
 img.resultDisplay {
@@ -691,16 +691,6 @@ img.resultDisplay {
   	-moz-user-select: none;     /* Firefox all */
   	-ms-user-select: none;      /* IE 10+ */
   	user-select: none;
-}
-h2.casesub-header {
-	width: 96%;
-	padding-left: 40px;
-  	margin-left: 0;
-	align-self: flex-start;
-	font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 4vw;
-    border-bottom: 3px solid 
 }
 .item-1 {
 	grid-column-start: 1;
@@ -898,7 +888,7 @@ h2.description{
 	top: 5%;
 }
 .marquee-exp {
-	width: 100%;
+	width: 102%;
 	grid-column-start: 1;
 	grid-column-end: 13;
 	background: black;
@@ -962,10 +952,7 @@ h2.description{
 		transform: scale(1);
 	}
 }
-.button-page-close{
-	margin-left: -1vw;
-	margin-top: -7px;
-}
+
 .ctabutton{
 	grid-column-start: 11;
 	grid-column-end: 13;
@@ -1034,7 +1021,7 @@ h2.description{
 	margin: 2% 5%;
 }
 .skansing-experimentation .img-and-text img{
-	height: 18vw;
+	height: 23vw;
 	padding-top: 0;
 }
 .skansing-experimentation .process-subheader{
@@ -1518,12 +1505,20 @@ button.imgClickInd {
 	background: white;
 	height: 37vh;
 	position: relative;
-  	overflow: hidden;
+	  overflow: hidden;
+	  transition: all 0.7s ease-in;
+	  
 }
 img.pattern {
 	position: absolute;
 	top: 0;
+	transition: all 0.7s ease-in;
 }
+.pageCTA:hover img{
+	transition: all 1s ease-in;
+	transform: scale(1.05);
+}
+
 .menu-cases{
 	grid-column-start: 1;
 	grid-column-end: 5;
