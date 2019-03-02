@@ -230,7 +230,6 @@ class ShapeOverlays {
   function hideTextAndShowResource() {
     header.style.background = "none";
     footer.style.background = "none";
-    cta.style.background = "none";
     textsec.style.background = "none";
     text[0].style.color = "transparent";
     text[1].style.color = "transparent";
@@ -240,8 +239,6 @@ class ShapeOverlays {
 
   function showTextAndNormalizeResource() {
     backgroundContainerImage.src = ""
-    header.style.background = "white";
-    cta.style.background = "white";
     footer.style.background = "linear-gradient(#ff90ff, #52ff97)";
     textsec.style.background = "white";
     text[0].style.color = "black";

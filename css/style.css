@@ -151,13 +151,12 @@ img.imgDisplay:hover{
 }
 .page{
 	grid-template-columns: repeat(12, 7.9vw);
-	grid-gap: 0.2vw;
-	grid-template-rows: 15vh;
-	width: 98.4%;
+	grid-template-rows: 19vh;
+	width: 100vw;
 	background: black;
 	display: none;
 	position: absolute;
-	top: 2.2%;
+	top: 0vw;
 	left: 50%;
 	transform: translateX(-50%);
 	overflow-y: scroll;
@@ -170,27 +169,27 @@ img.imgDisplay:hover{
 }
 .grid-section{
 	grid-column-start: 1;
-	grid-column-end: 13;
+	grid-column-end: 14;
 	display: flex;
 	background: #FFFFFF;
 }
 .grid-section-process{
 	grid-column-start: 1;
-	grid-column-end: 13;
+	grid-column-end: 14;
 	display: flex;
 	
 	flex-direction: column;
 }
 .skansing-process {
-    background: url(../assets/skansing-background2.svg) no-repeat -0.5vw 11vh;
+    background: url(../assets/case-background.svg) no-repeat -0.5vw 10vh;
     background-size: 101%;
 }
 .hesehus-process{
-	background: url(../assets/hesehus-background2.svg) no-repeat -0.5vw 11vh;
+	background: url(../assets/case-background.svg) no-repeat -0.5vw 10vh;
     background-size: 101%;
 }
 .nmg-process{
-	background: url(../assets/nmg-background2.svg) no-repeat -0.5vw 11vh;
+	background: url(../assets/case-background.svg) no-repeat -0.5vw 10vh;
     background-size: 101%;
 }
 .process-subheader{
@@ -198,11 +197,11 @@ img.imgDisplay:hover{
 	font-family: 'Poppins', sans-serif;
 	font-size: 42px;
 	width: 40%;
-	border: 4px solid black;
 	margin-top: 9vh;
 	box-shadow: 7px 21px 46px #000;
 	padding-top: 3px;
-    padding-bottom: 5px;
+	padding-bottom: 5px;
+	color: white;
 }
 .flush-right{
 	align-self: flex-end;
@@ -215,15 +214,16 @@ img.imgDisplay:hover{
 	margin-left: -1vw;
 }
 .casesub-header{
-	width: 97.3%;
+	width: 100%;
     padding-left: 40px;
     margin-left: 0;
     align-self: flex-start;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 4vw;
-	border-bottom: 3px solid;
 	background: #00FF66;
+	color: white;
+	box-shadow: 10px 2px 40px #333;
 }
 .skansing-inspiration {
 	display: flex;
@@ -495,10 +495,8 @@ audio#theSound {
     font-size: 18px;
     font-weight: 400;
     background: white;
-    border: 1px solid black;
     padding: 2vw;
 	margin-left: 40px;
-	background: #e3e3e3;
 }
 .hesehus-inspiration .img-and-text{
     margin: 7% 3%;
@@ -512,13 +510,13 @@ audio#theSound {
 
 .img-and-text{
 	background: white;
-    border: 2px solid black;
     padding: 1.1vw;
 	width: min-content;
 	display: flex;
     flex-direction: column;
 	justify-content: space-between;
 	box-shadow: 8px 9px 19px 2px #2f2f2f;
+	font-weight: 400;
 }
 .vid-and-text{
 	width: min-content;
@@ -574,7 +572,7 @@ audio#theSound {
 	padding: 7% 9%;
 }
 .skansing-mobile-mockup h2{
-	width: 97.3%;
+	width: 100%;
 	background: #00FF66;
 }
 .center-wrap{
@@ -620,7 +618,6 @@ img.resultDisplay {
 	width: 522px;
 	margin: 1%;
 	box-shadow: 6px 9px 17px #626262;
-	border: 2px solid black;
 }
 .case-nmg-product {
     display: flex;
@@ -635,7 +632,7 @@ img.resultDisplay {
 	padding: 12vh 0;
 }
 .case-matas{
-	background: url('../assets/matasPattern.svg');
+	background: url('../assets/matasPattern1.svg');
 }
 .case-kansas{	
 	background: url('../assets/fristadsPattern.svg');
@@ -749,9 +746,8 @@ button.pageClose {
 	background: black;
     color: white;
     border: none;
-    border: 1px solid black; 
     z-index: 1000;
-	padding: 21px;
+	padding: 2vw;
     margin: 0;
     border-radius: 100%;
 }
@@ -760,19 +756,19 @@ button.pageClose {
 }
 svg.close_button{
 	stroke: #ffffff;
-    stroke-width: 4;
+    stroke-width: 6;
     stroke-linecap: round;
 	height: 5vh;
 	margin-left: 5px;
     margin-top: 7px;
 }
 .header{
-	background: white;
 	grid-column-start: 1;
-	grid-column-end: 11;
+	grid-column-end: 14;
 	height: 15vh;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 h2.description{
 	font-size: 4vw;
@@ -786,7 +782,7 @@ h2.description{
 	background: white;
 	font-size: 31px;
 	align-items: center;
-	padding: 0% 0px;
+	padding: 4% 0;
 }
 .about-text-section p{
 	width: 92%;
@@ -850,6 +846,7 @@ h2.description{
 .about-contacts svg:hover{
 	cursor: pointer;
 	animation: iconsAnim 0.2s ease-in infinite;
+	transform: scale(1.2);
 }
 .email{
 	position: absolute;
@@ -887,6 +884,14 @@ h2.description{
 	right: 3%;
 	top: 5%;
 }
+.case-header-background{
+	background: white;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+	height: 113vh;
+}
 .marquee-exp {
 	width: 102%;
 	grid-column-start: 1;
@@ -917,62 +922,73 @@ h2.description{
 @keyframes iconsAnim{
 	0%{
 		fill: #00FF66;
-		stroke:#000;
+	
 		
 	}
 	20%{
 		fill: #fff;
-		stroke:#000;
+	
 	}
 	30%{
 		fill: #fff;
-		stroke:#000;
+	
 	}
 	50%{
 		fill: #FF00FF;
-		stroke:#000;
+	
 	}
 	70%{
 		fill: #000;
-		stroke:#000;
+	
 	}
 	90%{
 		fill: #FF00FF;
-		stroke:#000;
+	
 		transform: scale(1.01);
 	}
 	93%{
 		fill: #00FF66;
-		stroke:#000;
+	
 		transform: scale(1.08);
 	}
 	100%{
 		fill: #fff;
-		stroke:#000;
+	
 		transform: scale(1);
 	}
 }
 
 .ctabutton{
-	grid-column-start: 11;
-	grid-column-end: 13;
 	display: flex;
-  	align-items: center;
-	justify-content: center;
-	background: white;
+	margin-top: 3px;
+
 }
 .project-desc{
 	grid-column-start: 1;
-	grid-column-end: 4;
+	grid-column-end: 5;
 	background: #FF00FF;
 	display: flex;
 	align-items: center;
+	height: 39vh;
+    color: white;
+    box-shadow: 17px 19px 26px #333;
 }
-.project-info{
-	background: white;
-	grid-column-start: 4;
+.empty{
+	grid-column-start: 5;
 	grid-column-end: 13;
 	padding: 2% 0;
+}
+.project-info{
+	grid-column-start: 1;
+	grid-column-end: 14;
+	display: flex;
+	justify-content: space-around;
+	padding-top: 6vh;
+    height: 41vh;
+    padding-bottom: 7vh;
+}
+.project-info div{
+	width: 30%;
 }
 .experimentation{
   	flex-direction: column;
@@ -1005,7 +1021,7 @@ h2.description{
 	padding: 0% 0; 
 	  background: black;
 	  grid-column-start: 1;
-	  grid-column-end: 13;
+	  grid-column-end: 14;
 }
 .skansing-background-exp p{
 	background: white;
@@ -1430,6 +1446,7 @@ button.imgClickInd {
 .contacts-contacts svg:hover {
 	cursor: pointer;
 	animation: iconsAnim 0.2s ease-in infinite;
+	transform: scale(1.2);
 }
 .case-info-img{
 	width: 512px;
@@ -1494,14 +1511,25 @@ button.imgClickInd {
 	margin: 0;
 	margin-left: 30px;
 	text-transform: uppercase;
-	letter-spacing: -2px;
+	color: white;
+	margin-top: 2vh;
+}
+.button-page-close {
+    margin-top: 2vh;
+    position: absolute;
+	right: 2vw;
+	transition: all 0.3s ease;
+}
+.button-page-close:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
 }
 .norremadegaard .case-top-header{
 	font-size: 8.5vw;
 }
 .pageCTA{
 	grid-column-start: 1;
-	grid-column-end: 13;
+	grid-column-end: 14;
 	background: white;
 	height: 37vh;
 	position: relative;
@@ -2655,13 +2683,13 @@ canvas.productThree:hover{
 			border: 2px solid black;
 		}
 	.page {
-		width: 97.4%;
+		width: 100%;
 	}
 	.grid-section {
-		width: 98%;
+		width: 100%;
 	}
 	h2.casesub-header {
-		width: 98%;
+		width: 100%;
 	}
 	h2.description {
     line-height: 68px;
@@ -2809,7 +2837,7 @@ canvas.productThree:hover{
 		margin-top: -1%;
 	}
 	.text-for-image{
-		/*padding: 11px 11px;*/
+		padding: 11px 11px;
 		font-size: 14px;
 		
 	}
