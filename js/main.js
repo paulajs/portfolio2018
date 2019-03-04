@@ -164,6 +164,15 @@ class ShapeOverlays {
   }else{
     skansingBackVideo.src = "assets/skansingvid44.mp4";
   }
+  if(window.innerWidth<736){
+    var backgrounds = document.querySelectorAll('.case-header-background img');
+    for (let index = 0; index < backgrounds.length; index++) {
+      backgrounds[index].src = "../assets/mobile-header-background.svg";
+      
+    }
+    document.querySelector('.bubbles-intro-zoom').src = "assets/SVG/click3.svg"; 
+    document.querySelector('.bubbles-intro-pan').src = "assets/SVG/click1.svg"; 
+  }
 
   function onEmailCopyClickHandler(){
     var emailadress = document.querySelector('.email');
@@ -424,6 +433,7 @@ function pageCloseHandler(){
 
   for (var i = 0; i < video.length; i++) {
     video[i].addEventListener('click', (e) => {
+      e.preventDefault()
       e.target.volume = 0.05;
       console.log('vid controls', e.target.controls);
       var parent = e.target.parentNode;
@@ -432,24 +442,30 @@ function pageCloseHandler(){
       if (e.target.paused) {
         playButton.style.display = "block";
         e.target.play();
+        console.log(e.target.play());
+        console.log(e.target.paused);
         setTimeout(function(){
           playButton.style.display = "none";
         }, 450);
       }
       else{
         pauseButton.style.display = "block";
+        console.log(e.target.pause());
         e.target.pause();
+        console.log(e.target.paused);
         setTimeout(function(){
           pauseButton.style.display = "none";
         }, 450);
       }
     });
     video[i].addEventListener('mouseover', (e) => {
+      console.log('lol1')
       e.target.setAttribute('controls', true);
     });
     video[i].addEventListener('mouseout', (e) => {
-      e.target.removeAttribute('controls', true);
-      console.log(e.target.attributes);
+      console.log('lol2')
+      e.target.removeAttribute('controls');
+      //console.log(e.target.attributes);
     });
 
   }
@@ -596,7 +612,7 @@ function pageCloseHandler(){
           wrapper.scrollTop = 0;
           var pageClass = "."+linkId;
           var stateObj = { page: "linkId" };
-          history.pushState(stateObj, "page", linkId+".wow");
+          history.pushState(stateObj, "page", "#"+linkId);
           if(linkId =="experiments"){
             sound.src= "assets/jimjonesmarket.mp3?v=65";
             sound.autoplay = true;
@@ -620,7 +636,7 @@ function pageCloseHandler(){
           wrapper.scrollTop = 0;
           var pageClass = "."+linkId;
           var stateObj = { page: "linkId" };
-          history.pushState(stateObj, "page", linkId+".wow");
+          history.pushState(stateObj, "page", "#"+linkId);
           if(linkId =="experiments"){
             sound.src= "assets/jim_jones.mp3";
             sound.autoplay = true;

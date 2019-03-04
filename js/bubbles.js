@@ -295,12 +295,14 @@ function touchMobileSetColor(objectMaterial){
 
 function displayPoints(elem, array, e, posX, posY){
   var points =(array.length+1)*1000;
-  var backgrounds = ['../assets/points-background1.svg','../assets/points-background2.svg'];
-  var randomNum = Math.floor(Math.random()*2);
+  var backgrounds = ['../assets/points-background1.svg','../assets/points-background2.svg', '../assets/points-background3.svg'];
+  var randomNum = Math.floor(Math.random()*3);
   var str = "+"+String(points);
   elem.innerHTML = str;
   elem.style.left = posX;
   elem.style.top = posY;
+  elem.style.color = "#fff";
+  elem.style.webkitTextStroke = "1px #000";
   elem.style.background = "url('"+backgrounds[randomNum]+"') no-repeat top left" ;
   elem.style.animation = "pointsAnim 1.25s ease-in";
 }
