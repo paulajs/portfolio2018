@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Poppins:400,500,700,800,900|Source+Code+Pro:300,400,500');
 *{
 	margin: 0;
-	padding: 0;
+	padding: 0;/*#0bff9d*/
 }
 body {
 	min-height: 100vh;
@@ -26,7 +26,12 @@ body {
 	z-index: 1000;
 }
 .loading-img{
+	height: 101vh;
 	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	z-index: 20;
 }
 .loading-fill{
@@ -45,16 +50,21 @@ body {
     font-weight: 800;
     color: #FF00FF;
     font-size: 5vw;
-	right: 48%;
-    top: 41%;
-    transform: translate(48%, 41%);
+	left: 51%;
+    top: 52%;
+    transform: translate(-52%, -51%);
 	-webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
 }
 .loading-img-mob{
 	display: none;
+	height: 100vh;
 	width: 100%;
 	z-index: 20;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 @keyframes fillGlass{
  0%{
@@ -222,7 +232,7 @@ img.imgDisplay:hover{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 4vw;
-	background: #00FF66;
+	background: #0bff9d;
 	color: white;
 	box-shadow: 10px 2px 40px #333;
 	z-index: 10;
@@ -348,7 +358,7 @@ img.imgDisplay:hover{
 	  stroke: #FF00FF;
 	}
 	25%{
-	  stroke: #00FF66;
+	  stroke: #0bff9d;
 	}
 	50%{
 	  stroke: white;
@@ -357,7 +367,7 @@ img.imgDisplay:hover{
 	  stroke: #FF00FF;
 	}
 	75%{
-	  stroke: #00FF66;
+	  stroke: #0bff9d;
 	}
 	100%{
 	  stroke: white;
@@ -480,7 +490,7 @@ video.nmg-mood-video {
 }
 .nmg-design-obj h2{
 	width: 100%;
-	background: #00FF66;
+	background: #0bff9d;
 }
 .postit-center{
 	padding: 5% 0;
@@ -511,7 +521,20 @@ video.nmg-mood-video {
 .skansing-inspiration .img-and-text{
 	margin: 9vw 2vw;
 }
-
+.about .header{
+	background: white;
+	
+}
+.about .case-top-header{
+	color: black;
+}
+.contact .header{
+	background: white;
+	color: black;
+}
+.contact .case-top-header{
+	color: black;
+}
 .img-and-text{
 	background: white;
     padding: 1.1vw;
@@ -576,7 +599,7 @@ video.nmg-mood-video {
 }
 .skansing-mobile-mockup h2{
 	width: 100%;
-	background: #00FF66;
+	background: #0bff9d;
 }
 .center-wrap{
 	width: 98%;
@@ -602,7 +625,7 @@ video.nmg-mood-video {
 	align-items: center;
 }
 .skansing-desk-mock2 h2{
-	background: #00FF66;
+	background: #0bff9d;
 }
 .skansing-desk-mock2 img{
 	margin: 0 auto;
@@ -615,7 +638,7 @@ video.nmg-mood-video {
 }
 .case-result-nmg h2{
 	width: 97.3%;
-	background: #00FF66;
+	background: #0bff9d;
 }
 img.resultDisplay {
 	width: 522px;
@@ -643,13 +666,16 @@ img.resultDisplay {
 	background-size: cover;
 }
 .case-dan{
-	background: url('../assets/danPattern.svg');
+	background: url('../assets/danPattern3.svg') no-repeat 0 0;
+	background-size: cover;
 }
 .case-ins{
-	background: url('../assets/insPattern.svg');
+	background: url('../assets/insPattern.svg') no-repeat 0 0;
+	background-size: cover;
 }
 .case-proces{
-	background: url('../assets/proPattern.svg');
+	background: url('../assets/proPattern.svg') no-repeat 0 0;
+	background-size: cover;
 	border-bottom: 1px solid black;
 }
 .case-header.night{
@@ -786,7 +812,7 @@ h2.description{
 	background: white;
 	font-size: 31px;
 	align-items: center;
-	padding: 4% 0;
+	padding: 3% 0;
 }
 .about-text-section p{
 	width: 92%;
@@ -796,7 +822,7 @@ h2.description{
 	font-weight: 400;
 }
 .contact-info {
-	background: linear-gradient(#ffb8ff, #52ff97);
+	background: linear-gradient(#ffb8ff, #0bff9d);
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
@@ -1001,7 +1027,7 @@ h2.description{
 	  padding-bottom: 0vw;
 }
 .experimentation h2{
-	background: #00FF66;
+	background: #0bff9d;
 }
 .img-and-text .skansing-styletile-img{
 	height: 27vw;
@@ -1096,7 +1122,7 @@ h2.description{
   	align-items: center;
 }
 .hesehus-videos h2{
-  	background: #00FF66;
+  	background: #0bff9d;
 }
 .hesehus-videos video{
 	width: 50%;
@@ -1113,7 +1139,7 @@ h2.description{
 	align-items: center;
 }
 .hesehus-mockup h2{
-  	background: #00FF66;
+  	background: #0bff9d;
 }
 #animation-case-backg{
 	background-color: black;
@@ -1352,8 +1378,8 @@ button.imgClickInd {
   	padding: 31px 121px;
   	color: white;
   	font-weight: 500;
-  	border-bottom: 8px solid #00FF66;
-  	border-left: 10px solid #00FF66;
+  	border-bottom: 8px solid #0bff9d;
+  	border-left: 10px solid #0bff9d;
   	box-shadow: -9px 9px 0px #FF00FF;
   	transition: all 0.1s ease;
 	left: 47%;
@@ -1386,11 +1412,11 @@ button.imgClickInd {
 .contacttext{
 	align-self: flex-start;
     margin-left: 14px;
-    margin-top: 3.7vw;
+    margin-top: 4.7vw;
     border: 4px solid black;
-    font-size: 1.5vw;
+    font-size: 1.1vw;
     padding: 1.2vw;
-    transform: rotate(-8deg);
+    transform: rotate(-11deg);
     position: absolute;
 }
 .contact-section h2{
@@ -1405,8 +1431,8 @@ button.imgClickInd {
   	padding: 31px 121px;
   	color: white;
   	font-weight: 500;
-  	border-bottom: 8px solid #00FF66;
-  	border-left: 10px solid #00FF66;
+  	border-bottom: 8px solid #0bff9d;
+  	border-left: 10px solid #0bff9d;
   	box-shadow: -9px 9px 0px #FF00FF;
   	transition: all 0.1s ease;
 	font-size: 1vw;
@@ -1433,7 +1459,7 @@ button.imgClickInd {
 	color: #000;
 }
 .contact-footer{
-	background: linear-gradient(#ff90ff, #52ff97);
+	background: linear-gradient(#ff90ff, #0bff9d);
 	align-items: center;
 	justify-content: center;
 	height: 23vh;
@@ -1731,7 +1757,7 @@ canvas.productThree:hover{
 
 }
 .shape-overlays__path:nth-of-type(2) {
-	fill: url(#my-cool-gradient) #00ff66;
+	fill: url(#my-cool-gradient) #0bff9d;
 	stroke: black;
 	stroke-width: 0.2;
 	
@@ -1781,10 +1807,10 @@ canvas.productThree:hover{
 		
 	}
 	.about .case-top-header{
-		margin-top: 18vh;
+		margin-top: 14vh;
 	}
 	.contact .case-top-header{
-		margin-top: 18vh;
+		margin-top: 14vh;
 	}
 	.hesehus-process {
 		background: url(../assets/mobile-process-backg.svg) no-repeat -0.5vw 11vh;
@@ -1799,23 +1825,23 @@ canvas.productThree:hover{
 		background-size: 98.5%;
 	}
 	.case-dan {
-		background: url(../assets/danPatternMobile.svg);
+		background: url(../assets/danPatternMobile2.svg);
 		background-size: 99.5%;
 	}
 	.case-ins {
-		background: url(../assets/insPatternMobile.svg);
+		background: url(../assets/insPatternMobile2.svg);
 		background-size: 99.5%;
 	}
 	.case-kansas {
-		background: url(../assets/fristadsPatternMobile.svg);
+		background: url(../assets/fristadsPatternMobile2.svg);
 		background-size: 99.5%;
 	}
 	.case-matas {
-		background: url(../assets/matasPatternMobile.svg);
+		background: url(../assets/matasPatternMobile2.svg);
 		background-size: 99.5%;
 	}
 	.case-proces {
-		background: url(../assets/proPatternMobile.svg);
+		background: url(../assets/proPatternMobile2.svg);
 		background-size: 99.5%;
 		border-bottom: 0px solid black;
 	}
@@ -1853,9 +1879,9 @@ canvas.productThree:hover{
 	}
 	.load-percent {
 		font-size: 16vw;
-		right: 59%;
-    top: 37%;
-    transform: translate(59%,37%);
+		left: 47%;
+    top: 47%;
+    transform: translate(-47%,-47%);
 
 	}
 	.case-img-wrap{
@@ -1879,7 +1905,7 @@ canvas.productThree:hover{
 	.mobile-menu{
 		z-index: 150;
 		position: absolute;
-    	background: linear-gradient(#ff90ff, #00ff66);
+    	background: linear-gradient(#ff90ff, #0bff9d);
     	width: 100%;
     	height: 100vh;
 		display: grid;
@@ -2612,10 +2638,11 @@ canvas.productThree:hover{
 		width: 98%;
 	}
 	.contact-section {
-		height: 58vh;
+		height: auto;
 		text-align: center;
 		width: 100%;
 	}
+	
 	.CTAcontact {
 		padding: 22px 67px;
 		font-size: 7vw;
@@ -2638,8 +2665,8 @@ canvas.productThree:hover{
 		margin: 4% 8%;
 	}
 	.contact-footer {
-		height: 18vh;
-		width: 98%;
+		height: auto;
+		width: 100%;
 	}
 	.CTAcontact:hover p:after{
 		left: 65px;
@@ -2703,9 +2730,9 @@ canvas.productThree:hover{
 			padding-bottom: 16vh;
 		}
 		.load-percent {
-			right: 48%;
-    		top: 53%;
-    		transform: translate(48%,-53%);
+			left: 52%;
+    		top: 51%;
+    		transform: translate(-51%,-52%);
 		}
 		.header-cases {
     	font-size: 30px;

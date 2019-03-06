@@ -250,6 +250,7 @@ class ShapeOverlays {
     backgroundContainerImage.src = ""
     footer.style.background = "linear-gradient(#ff90ff, #52ff97)";
     textsec.style.background = "white";
+    header.style.background = "white";
     text[0].style.color = "black";
     text[1].style.color = "black";
     text[2].style.color = "black";
